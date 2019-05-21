@@ -75,7 +75,7 @@
 		"prompt_open_note": "Would you like to open the note?",
 		"prompt_remove": "This operation will disassociate the note as a trigger for running shortcuts, but the actual note will not be affected.",
 		"prompt_trigger_type": "What kind of NoteCut do you want to create?\n\n• LOCAL: Lets others trigger shortcuts to run on this device.\n\n• REMOTE: Trigger and run shortcuts on remote iOS devices.",
-		"prompt_welcome": "What do you want to do next in NoteCuts?"
+		"prompt_welcome": "What do you want to do next in NoteCuts?",
 		"prompt_view_shortcuts": "Select shortcuts to copy their names to the clipboard.",
 		"tip_notify": "Notify people who have associated this note with a local NoteCut that shortcuts are ready to run."
 	}
