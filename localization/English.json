@@ -27,6 +27,8 @@
 		"label_triggers": "Notes",
 		"label_trigger_local": "Local NoteCut",
 		"label_trigger_remote": "Remote NoteCut",
+		"label_shortcuts_available": "Shortcuts containing the following keywords are available to run from this note:",
+		"label_shortcuts_availableAll": "All shortcuts on this device can be run from this note.",
 		
 		"menu_about": "About…",
 		"menu_back": "Back to Home",
@@ -61,10 +63,11 @@
 		"menu_welcome_help": "Read the NoteCuts Documentation…",
 		"menu_welcome_home": "Go to the NoteCuts Home",
 		"menu_yes": "Yes",
+		"message_notify": "I have some shortcuts for you to run. Open NoteCuts and tap Evaluate Local NoteCuts.",
 		"prompt_description": "Description (optional)",
-		"prompt_edit_device": "Edit Device NoteCut",
-		"prompt_edit_remote": "Edit Remote NoteCut",
-		"prompt_edit_shortcuts": "Enter the list of keywords (case-sensitive) that will match all shortcuts that can be triggered from this note.\n\nLeave blank to allow remote triggering of all shortcuts.\n\nSeparate shortcuts by new lines.",
+		"prompt_edit_device": "LOCAL NoteCut:",
+		"prompt_edit_remote": "REMOTE NoteCut:",
+		"prompt_edit_shortcuts": "Enter the list of keywords (case-sensitive) that will match all shortcuts that can be triggered from this note.\n\nLeave blank to allow any shortcut to run.\n\nSeparate shortcuts by new lines.",
 		 "prompt_frequency": "Add or Update the cron job in Cronios\n\nHow often do you want this shortcut's cron job to run in Cronios? Check times begin from the top of the minute.",
 		"prompt_note_exists": "A note with this name already exists. Associate it with NoteCuts?",
 		"prompt_main": "NoteCuts",
@@ -72,7 +75,8 @@
 		"prompt_open_note": "Would you like to open the note?",
 		"prompt_remove": "This operation will disassociate the note as a trigger for running shortcuts, but the actual note will not be affected.",
 		"prompt_trigger_type": "What kind of NoteCut do you want to create?\n\n• LOCAL: Lets others trigger shortcuts to run on this device.\n\n• REMOTE: Trigger and run shortcuts on remote iOS devices.",
-		"prompt_view_shortcuts": "Select shortcuts to copy their names to the clipboard.",
 		"prompt_welcome": "What do you want to do next in NoteCuts?"
+		"prompt_view_shortcuts": "Select shortcuts to copy their names to the clipboard.",
+		"tip_notify": "Notify people who have associated this note with a local NoteCut that shortcuts are ready to run."
 	}
 }
