@@ -4,6 +4,8 @@
 		"alert_cronJob_frequency_title": "Cron Job Frequency",
 		"alert_evaluation": "Evaluating local NoteCuts for any shortcuts to run on this device…",
 		"alert_import_cronJob": "Tap OK to import into Cronios.\n\nIf Import Active Status is enabled in Cronios Settings, the cron job will run automatically when you enter `Run Continuously` mode in Cronios. Otherwise edit the cron job and tap Enable.\n\nFrom the Edit screen, you can also adjust the cron schedule expression better suit the frequency of checks, which is currently set to every {{frequency}} minute(s).",
+		"alert_import_none": "Either no notes could be found to import, or all possible notes are associated with existing NoteCuts.\n\nNotes supported by NoteCuts have titles of `NoteCuts⚡️(XYZ)` where XYZ is the name of the NoteCut.",
+		"alert_import_none_title": "No Notes Imported",
 		"alert_instructions": "Usage:\n\n1. Enter shortcuts you want to run at the end of this document (after the last ****). Separate each shortcut with a new line.\n\n2. Prefix shortcuts with ▶️ to run them the next time this note is evaluated by NoteCuts based on the NoteCut type:\n\nLOCAL: The shortcuts will run on this iOS device.\n\nREMOTE: The shortcuts will run on any remote iOS device that has associated this shared note with a local NoteCut.",
 		"alert_new_note": "You can share this note with other people.\n\nIf they add the name of a shortcut prefixed by ▶️, your shortcut will automatically run when you either:\n\n• Run this shortcut\n\n• Run this shortcut via Cronios.",
 		"alert_shortcuts_cache": "Updating the list of shortcuts on this device. This may take a few moments.",
