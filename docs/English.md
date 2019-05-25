@@ -18,6 +18,9 @@ NotesCuts offers features such as the ability to:
 - Send input to the shortcuts.
 - Switch to the Shortcuts app for displaying menus and dialogs.
 
+****
+
+<span id="automation"></span> 
 ## Automating Shortcuts
 People have been writing about the inability for shortcuts to be triggered to run automatically. What they fail to mention is there are solutions today that you let automate your shortcuts:
 
@@ -29,7 +32,10 @@ People have been writing about the inability for shortcuts to be triggered to ru
 
 Of course, it would be great if these features are built into iOS and Shortcuts, but we could be waiting a long time for those features to come. In the meantime, you can take advantage of these shortcuts today.
 
-## System Requirements 
+****
+
+<span id="requirements"></span> 
+## System Requirements
 
 NoteCuts has the following system requirements:
 
@@ -37,6 +43,9 @@ NoteCuts has the following system requirements:
 - iCloud Notes
 - Cronios required to run shortcuts automatically and in the background. 
 
+****
+
+<span id="getting-started"></span> 
 ## Getting Started
 When you run NoteCuts for the first time, you'll be presented by a brief number of tutorial screens will be displayed. Afterwards, you will have the option to create your first NoteCut. You can choose between a Local NoteCut or Remote NoteCut.
 
@@ -87,6 +96,9 @@ Choose a shortcut where it will be obvious to you that it has run.
 
 Return to the Shortcuts app and tap **Evaluate This NoteCut** from the Edit menu. After a few seconds, the shortcut will run.
 
+Learn more about the [NoteCuts shortcut syntax](#syntax), including additional options you can add.
+
+<span id="how-it-works"></span> 
 ### How It Works
 When NoteCuts evaluates your notes, it does the following things:
 
@@ -102,9 +114,31 @@ When NoteCuts evaluates your notes, it does the following things:
 
 This workflow can be visualized in the following flow diagram:
 
-### Sharing NoteCuts
+![NoteCuts Flow Diagram](https://adamtow.github.io/notecuts/images/notescuts-flow-diagram.png)
 
+<span id="sharing-notecuts"></span> 
+### Sharing NoteCuts
+Invite friends, family, or colleagues to be able to run shortcuts on your device. Have them do the same for you, so you can run shortcuts on their devices. As both of you edit notes that are associated with Local and Remote NoteCuts, the changes will stay in sync via iCloud.
+
+> Learn [more about sharing notes](https://support.apple.com/en-us/HT206987) in this Apple Support web page.
+
+1. In NotesCuts, open the NoteCut that you want to share.
+2. Tap View in Notes to open the note in Notes.
+3. Tap the collaborate icon (the person with the plus sign).
+4. Choose how you'd like to send your invitation.
+5. Enter the recipients and tap Send.
+
+Once a note has been shared, you can adjust its sharing settings by tapping on the collaborate icon again. You can:
+
+- **Add People**: Add more people who will have access to your NoteCut.
+- **Remove Access**: Remove access to your NoteCut.
+- **Stop Sharing**: Remove access for everyone to your NoteCut.
+
+****
+
+<span id="syntax"></span> 
 ## NoteCuts Syntax
+NoteCuts looks for specially formatted lines to indicate shortcuts to run and the last evaluation dates.
 
 ### Run Delimiter
 NoteCuts will evaluate any text that follows the last occurrence of the following string:
@@ -154,6 +188,9 @@ Retrieve Web API only requires network access as it pings an API on the open web
 
 Finally, Remote Notification has custom input which will be displayed on the iOS device in a notification banner. 
 
+****
+
+<span id="background"></span> 
 ## Running NoteCuts in the Background
 With Cronios, you can run NoteCuts in the background. It can even when your device is asleep. Here's how:
 
@@ -161,11 +198,25 @@ With Cronios, you can run NoteCuts in the background. It can even when your devi
 2. Run Cronios in Run Continuously Mode.
 3. For best results, have some kind of background audio playing, be it a song, podcast, or a [silent audio]() file.
 
-Troubleshooting and Frequently Asked Questions
+****
+
+## Troubleshooting and Frequently Asked Questions
 
 **I added items to run, but they are not running.**
 Did the device go to sleep before you added the items to the shared Note? iCloud Sync does not happen when the device is sleeping or off. NoteCuts will remember the last set of shortcuts that were run so it doesn't run them again when the device wakes up. 
 
+Do you have Shortcuts Cache enabled? If so, have you added new shortcuts after the last time you updated the cache? 
+
+Did you provide keywords for your NoteCut, restricting the shortcuts that can run from the NoteCut? If so, make sure the shortcut you are trying to run is on the list of available shortcuts. You can view what shortcuts will run by selecting **View Triggerable Shortcuts** from the **Edit NoteCut** menu.
+
+**I'm getting an error, "The action could not be run in the current user interface."**
+NoteCuts makes use of the Append Note action when evaluating Local NoteCuts. By appending a new line to the end of the note, iCloud sync is triggered for the note, causing all updates to be fetched. The Append Note action currently requires the device to be unlocked. If NoteCuts tries to do this when the device is locked, this error will be thrown and NoteCuts and Shortcuts will stop execution. This is especially challenging when using Cronios, which will also stop running and evaluating your cron jobs.
+
+Let's hope Apple and the Shortcuts team allow shortcut developers better ability to handle errors without terminating the entire shortcut execution in the future. 
+
+****
+
+<span id="interface"></span> 
 ## Exploring the NotesCuts Interface
 The NoteCuts Home screen has the following elements:
 
@@ -181,6 +232,9 @@ The NoteCuts Home screen has the following elements:
 - **Settings**: Displays the NoteCuts Settings page.
 - **Close NoteCuts**: Allows you to exit the shortcut. Useful if you ran NoteCuts from another shortcut and want to return to it instead of terminating all shortcut execution.
 
+****
+
+<span id="settings"></span> 
 ## Settings
 You can configure the following options in NoteCuts from the Settings page:
 
@@ -197,6 +251,40 @@ You can configure the following options in NoteCuts from the Settings page:
 - **Change Language**: Change the language of PromptKit.
 - **Back to Home**: Returns to the NoteCuts Home screen.
 
+****
+
+<span id="localization"></span> 
+## Localization
+NoteCuts is available in English, but the application is also supplied with auto-translated localized files for the support spoken/dictation languages.
+
+Since machine translation is never perfect, your help would come greatly in handy. If you are a native speaker of one of these languages, consider contributing to improving PromptKit's localization files.
+
+You can use the Localization Helper shortcut to assist with localizing PromptKit into your language.
+
+> [**Download Localization Helper from RoutineHub &raquo;**](https://routinehub.co/shortcut/1931)
+
+- When the localization file is complete, submit a pull request on [the PromptKit GitHub page](https://github.com/adamtow/notecuts/localization/).
+
+Help make NoteCuts more accurate and more universal for all iOS users!
+
+****
+
+<span id="app-framework"></span>
+## App Framework
+NoteCuts was developed using the [Shortcut App Framework](https://routinehub.co/shortcut/1510) approach to developing application-like shortcuts. This framework was also used to develop:
+
+- [**Cronios**](https://routinehub.co/shortcut/1267): The shortcuts scheduler for iOS.
+- [**GeoCuts**](https://routinehub.co/shortcut/1732): Run your shortcuts automatically based on location triggers.
+- [**Inspector**](https://routinehub.co/shortcut/1106): View and modify objects at runtime in your shortcuts.
+- [**LaunchCuts**](https://routinehub.co/shortcut/959): Folders and tags for your organizing and launching your shortcuts.
+- [**WatchCuts**](https://routinehub.co/shortcut/1864): Trigger shortcuts on your iPhone and iPad using any of your iCloud-connected devices: iPhone, iPad, Mac, Apple Watch, or iCloud.com!
+- [**PromptKit**](https://routinehub.co/shortcut/2583): An advanced dialog engine for shortcuts and iOS. 
+
+Learn more how you can create your own [shortcut applications with App Framework here](https://tow.com/shortcuts/framework).
+
+****
+
+<span id="license"></span>
 ## License
 Copyright © 2019 Adam Tow • tow.com • @atow
 
