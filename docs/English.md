@@ -4,6 +4,8 @@ NoteCuts triggers shortcuts on other iOS devices using shared notes. Combine Not
 
 - [Download NoteCuts from RoutineHub.co](https://routinehub.co/shortcut/2711)
 
+![NotesCuts: Trigger Shortcuts to Run via Shared Notes](https://adamtow.github.io/notecuts/images/notecuts-notes-hero.png)
+
 With NoteCuts, you can:
 
 - Turn your iPad or iPhone into a server where others can run shortcuts to get device status, retrieve content, or deliver notifications. 
@@ -94,31 +96,13 @@ In the new note, add some shortcuts to run by prefixing them with the `▶️` c
 
 Choose a shortcut where it will be obvious to you that it has run. 
 
-Return to the Shortcuts app and tap **Evaluate This NoteCut** from the Edit menu. After a few seconds, the shortcut will run.
+Return to NoteCuts in the Shortcuts app and tap **Evaluate This NoteCut** from the Edit menu. After a few seconds, the shortcut will run. [Learn more about how NoteCuts does its magic here](#how-it-works).
 
-Learn more about the [NoteCuts shortcut syntax](#syntax), including additional options you can add.
-
-<span id="how-it-works"></span> 
-### How It Works
-When NoteCuts evaluates your notes, it does the following things:
-
-1. Checks to see if the device is locked by inspecting the device brightness value.
-2. Checks online status.
-3. Retrieves a list of shortcuts on the device. If you have a lot of shortcuts, this process can take several seconds. You can speed it up by enabling the Shortcuts Cache in Settings.
-4. Retrieves all local NoteCuts or a single local NoteCut (if NoteCuts was supplied at launch with name of a NoteCut).
-5. If the screen is on, assume that the device is unlocked. Update each note to force an iCloud sync of the note.
-6. Wait a few seconds for iCloud sync to complete.
-7. Evaluate the NoteCut for new shortcuts to run.
-8. Run the shortcuts if evaluation is successful. Don't run if certain conditions are not met (i.e. online status, lock detection, etc.).
-9. Exit the shortcut.
-
-This workflow can be visualized in the following flow diagram:
-
-![NoteCuts Flow Diagram](https://adamtow.github.io/notecuts/images/notecuts-flow-diagram.png)
+Discover more [details about the NoteCuts shortcut syntax](#syntax), including additional options you can add.
 
 <span id="sharing-notecuts"></span> 
 ### Sharing NoteCuts
-Invite friends, family, or colleagues to be able to run shortcuts on your device. Have them do the same for you, so you can run shortcuts on their devices. As both of you edit notes that are associated with Local and Remote NoteCuts, the changes will stay in sync via iCloud.
+Invite friends, family, or colleagues to run shortcuts on your device. Have them do the same for you, so you can run shortcuts on their devices. As both of you edit notes that are associated with Local and Remote NoteCuts, the changes will stay in sync via iCloud.
 
 > Learn [more about sharing notes](https://support.apple.com/en-us/HT206987) in this Apple Support web page.
 
@@ -141,7 +125,7 @@ Once a note has been shared, you can adjust its sharing settings by tapping on t
 NoteCuts looks for specially formatted lines to indicate shortcuts to run and the last evaluation dates.
 
 ### Run Delimiter
-NoteCuts will evaluate any text that follows the last occurrence of the following string:
+NoteCuts will evaluate any text following the **last** occurrence of the following string:
 
 `⚡️📅 {{Date}} 🗒⚡️`
 
@@ -163,13 +147,22 @@ Toggle Flashlight
 In the example above, only two shortcuts will run, Speak Random Number and Backup My Shortcuts. Toggle Flashlight will not run, even though it is a valid shortcut name, because the `▶️` character does not prefix the shortcut name. 
 
 ### Options
-You can specify the following options after the name of the shortcut:
+You can specify the following emoji characters to provide options after the name of the shortcut:
 
-- 🔒 **Lock Detection**. If this emoji is present, the shortcut will not run when the device is locked. While it is currently impossible to know if the device is locked, NoteCuts make a guess that it is locked whenever the device screen brightness is 0. Note: if your shortcut natively handles lock detection (i.e. it alerts the user to unlock the device before continuing), you do not need to specify this option. 
-- ✋ **Requires Interaction**. This option will cause NoteCuts to open the Shortcuts app prior to running the shortcut. This is useful if you need to present dialogs and menus to the user. 
-- ☁️ **Requires Network Access**. If this option is present, your shortcut will not run if the device is offline. 
-- 📗 **Notify Shortcut**: A Cronios-style dictionary will be sent to the shortcut as input. You can use this dictionary to determine whether or not you are running the shortcut in the background. 
-- 💬 **Custom Input**: Any text that follows this line will be sent to the shortcut as input. If the Notify Shortcut option is present, input will be placed under the `input` key of the dictionary sent to the shortcut. 
+#### 🔒
+**Lock Detection**: If this emoji is present, the shortcut will not run when the device is locked. While it is currently impossible to know if the device is locked, NoteCuts make a guess that it is locked whenever the device screen brightness is 0. Note: if your shortcut natively handles lock detection (i.e. it alerts the user to unlock the device before continuing), you do not need to specify this option. 
+
+#### ✋
+**Requires Interaction**: This option will cause NoteCuts to open the Shortcuts app prior to running the shortcut. This is useful if you need to present dialogs and menus to the user. 
+
+#### ☁️
+**Requires Network Access**: If this option is present, your shortcut will not run if the device is offline. 
+
+#### 📗
+**Notify Shortcut**: A Cronios-style dictionary will be sent to the shortcut as input. You can use this dictionary to determine whether or not you are running the shortcut in the background. 
+
+#### 💬
+**Custom Input**: Any text that follows this line will be sent to the shortcut as input. If the Notify Shortcut option is present, input will be placed under the `input` key of the dictionary sent to the shortcut. 
 
 Here are some examples:
 
@@ -180,39 +173,61 @@ Here are some examples:
 ▶️ Remote Notification 💬 How are you doing? Are you all free for dinner tonight?
 ```
 
-The Dark Dungeon, a [PromptKit Story](http://promptkit.com) shortcut, will not run when the device is locked. NoteCuts will Open the Shortcuts app prior to running the shortcut. 
-
-How Do You Feel requires network access for dictation and user interaction (Shortcuts needs to be in the foreground for dictation to operate). It needs to run when the device is unlocked. 
-
-Retrieve Web API only requires network access as it pings an API on the open web for information. 
-
-Finally, Remote Notification has custom input which will be displayed on the iOS device in a notification banner. 
+1. **The Dark Dungeon**, a [PromptKit Story](http://promptkit.com) shortcut, will not run when the device is locked. NoteCuts will Open the Shortcuts app prior to running the shortcut. 
+2. **How Do You Feel** requires network access for dictation and user interaction (Shortcuts needs to be in the foreground for dictation to operate). It needs to run when the device is unlocked. 
+3. **Retrieve Web API** only requires network access as it pings an API on the open web for information. 
+4. **Remote Notification** has custom input which will be displayed on the iOS device in a notification banner. 
 
 ****
 
 <span id="background"></span> 
 ## Running NoteCuts in the Background
-With Cronios, you can run NoteCuts in the background. It can even when your device is asleep. Here's how:
+With Cronios, you can run NoteCuts in the background, which means it can constantly be on the lookout for new shortcuts to run that were added either by you or someone to whom you've shared a NoteCut with. It can even run these shortcuts when your device is locked and asleep.
+
+Here's how to configure NoteCuts to work with Cronios:
 
 1. Configure NoteCuts to run at an interval of your choosing in Cronios. NoteCuts gives you options to create a cron job in Cronios that checks every 1, 2, 5, 10, 15, 30, or 60 minutes. You can further customize this within the NoteCuts cron job details page in Cronios. 
 2. Run Cronios in Run Continuously Mode.
-3. For best results, have some kind of background audio playing, be it a song, podcast, or a [silent audio]() file.
+3. For best results, have some kind of background audio playing, be it a song, podcast, or a silent audio file.
 
 ****
 
-## Troubleshooting and Frequently Asked Questions
+## Frequently Asked Questions and Troubleshooting
 
-**I added items to run, but they are not running.**
+### I added items to run, but they are not running.
 Did the device go to sleep before you added the items to the shared Note? iCloud Sync does not happen when the device is sleeping or off. NoteCuts will remember the last set of shortcuts that were run so it doesn't run them again when the device wakes up. 
 
 Do you have Shortcuts Cache enabled? If so, have you added new shortcuts after the last time you updated the cache? 
 
 Did you provide keywords for your NoteCut, restricting the shortcuts that can run from the NoteCut? If so, make sure the shortcut you are trying to run is on the list of available shortcuts. You can view what shortcuts will run by selecting **View Triggerable Shortcuts** from the **Edit NoteCut** menu.
 
-**I'm getting an error, "The action could not be run in the current user interface."**
+### I'm getting an error, "The action could not be run in the current user interface."
 NoteCuts makes use of the Append Note action when evaluating Local NoteCuts. By appending a new line to the end of the note, iCloud sync is triggered for the note, causing all updates to be fetched. The Append Note action currently requires the device to be unlocked. If NoteCuts tries to do this when the device is locked, this error will be thrown and NoteCuts and Shortcuts will stop execution. This is especially challenging when using Cronios, which will also stop running and evaluating your cron jobs.
 
 Let's hope Apple and the Shortcuts team allow shortcut developers better ability to handle errors without terminating the entire shortcut execution in the future. 
+
+<span id="how-it-works"></span> 
+### How it works
+When NoteCuts evaluates your notes, it does the following things:
+
+1. Checks to see if the device is locked by inspecting the device brightness value.
+2. Checks online status.
+3. Retrieves a list of shortcuts on the device. If you have a lot of shortcuts, this process can take several seconds. You can speed it up by enabling the Shortcuts Cache in Settings.
+4. Retrieves all local NoteCuts or a single local NoteCut (if NoteCuts was supplied at launch with name of a NoteCut).
+5. If the screen is on, assume that the device is unlocked. Update each note to force an iCloud sync of the note.
+6. Wait a few seconds for iCloud sync to complete.
+7. Evaluate the NoteCut for new shortcuts to run.
+8. Run the shortcuts if evaluation is successful. Don't run if certain conditions are not met (i.e. online status, lock detection, etc.).
+9. Exit the shortcut.
+
+This workflow can be visualized in the following flow diagram:
+
+![NoteCuts Flow Diagram](https://adamtow.github.io/notecuts/images/notecuts-flow-diagram.png)
+
+### Will running Cronios and Notes impact my battery life?
+If the shortcuts that are being run employ battery-draining activities like Get Current Location, battery life will be affected. However, it's Cronios and NoteCuts are just polling and not running shortcuts, I have found battery drain to be minimal. 
+
+When running while the device is locked, the lack of battery drain is even more pronounced. A test shown that over a nearly 8 hour period, only 10% of an iPad Pro battery was drained, despite Cronios, NoteCuts, and WatchCuts running every minute (while the iPad was locked and sleeping).
 
 ****
 
