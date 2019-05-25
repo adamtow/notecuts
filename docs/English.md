@@ -114,7 +114,7 @@ When NoteCuts evaluates your notes, it does the following things:
 
 This workflow can be visualized in the following flow diagram:
 
-![NoteCuts Flow Diagram](https://adamtow.github.io/notecuts/images/notescuts-flow-diagram.png)
+![NoteCuts Flow Diagram](https://adamtow.github.io/notecuts/images/notecuts-flow-diagram.png)
 
 <span id="sharing-notecuts"></span> 
 ### Sharing NoteCuts
