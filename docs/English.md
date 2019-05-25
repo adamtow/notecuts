@@ -2,9 +2,9 @@
 
 NoteCuts triggers shortcuts on other iOS devices using shared notes. Combine NoteCuts with [Cronios](http://cronios.com), and these shortcuts can run automatically in the background, even when the device is locked and sleeping.
 
-- [Download NoteCuts from RoutineHub.co](https://routinehub.co/shortcut/2711)
+- [**Download NoteCuts from RoutineHub.co**](https://routinehub.co/shortcut/2711)
 
-![NotesCuts: Trigger Shortcuts to Run via Shared Notes](https://adamtow.github.io/notecuts/images/notecuts-notes-hero.png)
+![NotesCuts: Trigger Shortcuts to Run via Shared Notes](https://adamtow.github.io/notecuts/images/notecuts-note-hero.png)
 
 With NoteCuts, you can:
 
