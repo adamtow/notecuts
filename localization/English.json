@@ -62,6 +62,7 @@
 		"menu_edit_remove": "Remove…",
 		"menu_edit_shortcutsToClipboard": "Copy Shortcuts Names to Clipboard",
 		"menu_edit_shortcutsToNote": "Append Shortcuts to Note",
+		"menu_edit_viewContent": "View Note Contents…",
 		"menu_edit_viewShortcuts": "View Triggerable Shortcuts…",
 		"menu_help": "Help…",
 		"menu_import": "Import Apple Notes as NoteCuts…",
