@@ -1,6 +1,8 @@
 # NoteCuts
 
-NoteCuts triggers shortcuts on other iOS devices using shared notes on Apple Notes, Dropbox, and Evernote. Combine NoteCuts with [Cronios](http://cronios.com), and shortcuts can run automatically in the background, even when the devices are locked and sleeping.
+NoteCuts triggers shortcuts on other iOS devices using shared notes on Apple Notes, Dropbox, and Evernote. Add the name of a shortcut to a note on one of these services, and NoteCuts will run that shortcut within a minute. 
+
+Combine NoteCuts with [Cronios](http://cronios.com), and shortcuts can run automatically in the background, even when the devices are locked and sleeping.
 
 - [**Download NoteCuts from RoutineHub.co**](https://routinehub.co/shortcut/2711)
 
@@ -16,6 +18,7 @@ NotesCuts offers features such as the ability to:
 
 - Integration with shared notes in Apple Notes and Evernote, or text files on Dropbox.
 - Limit which shortcuts are available to run on a per-note basis.
+- Integrate with popular third-party services like IFTTT and Dropbox to send commands to your iOS device for automatic running, no tapping on a notification banner required. 
 - Run shortcuts while the screen is locked and the device is sleeping (requires Cronios).
 - Notify owners of shared notes that there are shortcuts they would like them to run.
 - Send input to the shortcuts.
@@ -25,7 +28,7 @@ NotesCuts offers features such as the ability to:
 
 <span id="automation"></span> 
 ## Automating Shortcuts
-There are countless Shortcut users who have been asking for automatic trigger of shortcuts. While this is not part of the operating system yet, solutions exist today that allow you to do just that:
+A common request from Shortcuts users is whether shortcuts can be automatically triggered. And, the most common, albeit uninformed, response is that they cannot. While true this is not a built-in part of iOS, solutions do exist today. I have developed a suite of apps enabling automatic triggering of shortcuts across a variety of use cases:
 
 - [**Cronios**](http://cronios.com): Date and time based scheduling. Enables shortcuts that can check for triggering events every minute.
 - [**GeoCuts**](http://geocuts.com): Location-based triggering of shortcuts.
@@ -45,6 +48,7 @@ NoteCuts has the following system requirements:
 - Shortcuts 2.2
 - iCloud Notes, Evernote, or Dropbox
 - [Cronios](http://cronios.com) is required if you want to run shortcuts automatically in the background. 
+- (Recommended) IFTTT, Zapier, or other third-party web integration service. 
 - (Optional) [Silent audio file](#silence) in the Music app on your iOS device.
 
 ****
@@ -56,10 +60,10 @@ When you run NoteCuts for the first time, you'll be presented with a short tutor
 You can choose between a Local NoteCut or Remote NoteCut.
 
 ### Local NoteCuts
-A local NoteCut allows you to run shortcuts on the same iOS device where the NoteCut resides. When you share your note with other people, they associate that note with a a Remote NoteCut.
+A local NoteCut allows you to run shortcuts on the same iOS device where the NoteCut resides. When you share your note with other people, they associate that note with a Remote NoteCut.
 
 ### Remote NoteCuts
-Remote NoteCuts are associated with Local NoteCuts on other iOS devices. You can create these notes or receive them as shared notes from other users. A shortcut added to a remote NoteCut will run on a different iOS device. 
+Remote NoteCuts are associated with Local NoteCuts on other iOS devices. You can create these notes yourself or receive them as shared notes from other users. A shortcut added to a remote NoteCut will run on a different iOS device. 
 
 It is recommended to name your NoteCuts by device. This way it will be easy to identify on which device the shortcuts will be running. For instance;
 
@@ -69,6 +73,12 @@ It is recommended to name your NoteCuts by device. This way it will be easy to i
 - `Johnny's iPad touch` 
 
 Let's first create a local NoteCut. Give it a name using the scheme described above. 
+
+The name you choose will be used as the title of the note in Apple Notes or Evernote and the filename for the text file on Dropbox. The format for the note or filename will be:
+
+	`NoteCuts (XYZ)`
+
+Where `XYZ` is the name you enter. 
 
 ### NoteCut Location
 Next, you'll choose where you want the associated note will live. Select from:
@@ -275,6 +285,15 @@ Use these audio files with Cronios to let run for long periods of time when you'
 Now, whenever you want to run Cronios for long periods of uninterrupted time, run this shortcut. After seeing the notification from Cronios as to when it will start evaluating your cron jobs, you can lock your screen or switch to using other apps.
 
 Also use the [Cronios Watcher](http://cronios.com#cronios-watcher) to be notified if Cronios were to stop, either by iOS or by an error in the Shortcuts app. For more information, please refer to the [Cronios documentation](http://cronios.com).
+
+****
+
+<span id="integration"></span>
+## Integrating NoteCuts with Third-Party Triggering Services
+
+Combine a third-party triggering service like IFTTT or Zapier to append shortcut commands to your notes and files on Evernote or Dropbox. For Apple Notes, use shortcuts to append commands to local and remote NoteCuts notes. 
+
+If NoteCuts is running continuously in the background, shortcut commands will run automatically. 
 
 ****
 
