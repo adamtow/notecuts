@@ -2,7 +2,7 @@
 
 NoteCuts triggers shortcuts on other iOS devices using shared notes on Apple Notes, Dropbox, and Evernote. Add the name of a shortcut to a note on one of these services, and NoteCuts will run that shortcut within a minute. 
 
-Combine NoteCuts with [Cronios](http://cronios.com), and shortcuts can run automatically in the background, even when the devices are locked and sleeping.
+NoteCuts continually monitors your notes and runs shortcuts automatically in the background, even when an iPad or iPhone is locked and sleeping.
 
 - [**Download NoteCuts from RoutineHub.co**](https://routinehub.co/shortcut/2711)
 
@@ -19,7 +19,7 @@ NotesCuts offers features such as the ability to:
 - Integration with shared notes in Apple Notes and Evernote, or text files on Dropbox.
 - Limit which shortcuts are available to run on a per-note basis.
 - Integrate with popular third-party services like IFTTT and Dropbox to send commands to your iOS device for automatic running, no tapping on a notification banner required. 
-- Run shortcuts while the screen is locked and the device is sleeping (requires Cronios).
+- Run shortcuts while the screen is locked and the device is sleeping.
 - Notify owners of shared notes that there are shortcuts they would like them to run.
 - Send input to the shortcuts.
 - Switch to the Shortcuts app for displaying menus and dialogs.
@@ -47,8 +47,8 @@ NoteCuts has the following system requirements:
 
 - Shortcuts 2.2
 - iCloud Notes, Evernote, or Dropbox
-- [Cronios](http://cronios.com) is required if you want to run shortcuts automatically in the background. 
 - (Recommended) IFTTT, Zapier, or other third-party web integration service. 
+- (Optional) [Cronios](http://cronios.com) if you want to run NoteCuts with other Cronios-compatible background shortcuts.
 - (Optional) [Silent audio file](#silence) in the Music app on your iOS device.
 
 ****
@@ -250,9 +250,35 @@ Here are some examples:
 
 <span id="background"></span> 
 ## Running NoteCuts in the Background
-Cronios, the shortcuts scheduler for iOS, lets you can run shortcuts in the background. Running NoteCuts periodically means your iPhone or iPad can constantly be on the lookout for new shortcuts to run that were added either by you or someone to whom you've shared a NoteCut with. It can even run these shortcuts when your device is locked and asleep.
+NoteCuts can run continually in the background, constantly checking for changes in your Apple Notes, Evernote notes, and Dropbox text files. You can configure from one to sixty seconds how often NoteCuts will check for changes.
 
-> Make sure the shortcut you want to run automatically works when launched in the background. Any error may cause the Shortcuts app to display an modal dialog with will stop the shortcut and any future monitoring by NoteCuts and Cronios until the error is dismissed and Cronios is relaunched. 
+Running NoteCuts continually means your iPhone or iPad can constantly be on the lookout for new shortcuts to run that were added either by you or someone to whom you've shared a NoteCut with. It can even run these shortcuts when your device is locked and asleep.
+
+- Open NoteCuts
+- Tap Evaluate Continously
+
+> Make sure the shortcut you want to run automatically works when launched in the background. Any error may cause the Shortcuts app to display an modal dialog with will stop the shortcut and any future monitoring by NoteCuts until it has been removed from the [Shortcut Quarantine](#quarantine).
+
+### Quarantine
+When NoteCuts runs a shortcut, it temporarily places the shortcut in a quarantine. If no errors occurred during execution, the shortcut is removed from the quarantine. However, if there was an error, it's likely one that terminated the entire Shortcut application.
+
+When this happens, NoteCuts will prevent that shortcut from running again until you remove it from the Quarantine.
+
+1. Open NoteCuts
+2. If shortcuts are in quarantine, a menu option called Shortcut Quarantine will appear below the evaluation menu items.
+3. Tap and select the shortcuts that should remain in quarantine.
+4. Tap Done.
+
+When a shortcut is removed from the quarantine, it can run again from NoteCuts. If another error occurs, you'll want to review the shortcut to see why it's crashing. It could be one of several reasons, including:
+
+- Trying to run an action that is disallowed in the current context.
+- The action is not supported on the iOS device (i.e. Vibrate Device on iPads).
+- A network timeout.
+- An action was requested that required online access.
+- A user timeout (i.e. a dialog menu was displayed but the user never returned to the Shortcuts app to address it).
+
+### Integration with Cronios
+Cronios, the shortcuts scheduler for iOS, lets you can run shortcuts in the background. NoteCuts can run alongside other Cronios-compatible shortcuts by addin NoteCuts as a cron job to Cronios. 
 
 Here's how to configure NoteCuts to work with Cronios:
 
@@ -263,12 +289,12 @@ Here's how to configure NoteCuts to work with Cronios:
 ****
 
 <span id="silence"></span>
-## Silent Audio
+### Silent Audio
 Use these audio files with Cronios to let run for long periods of time when you're using your iOS device or when it's locked.
 
 - [**Download 12 and 24 Hours of Silence MP3 Files**](https://www.dropbox.com/sh/eu0mb1vf1oqo74l/AACijAwutUSDMtzeTElIGBx9a?dl=0)
 
-### Usage
+Here are instructions on how to create a shortcut that 
 
 1. Add these files to iTunes.
 2. Sync them to your iOS device. 
@@ -278,13 +304,13 @@ Use these audio files with Cronios to let run for long periods of time when you'
 - **Find Songs**: Reference the silent audio file.
 - **Play Music**
 - **Text**: enter "autorun" as the value.
-- **Run Shortcut**: specify Cronios as the shortcut.
+- **Run Shortcut**: specify NoteCuts or Cronios as the shortcut.
 
 ![24 Hours of Silence](https://adamtow.github.io/notecuts/images/silence.png)
 
-Now, whenever you want to run Cronios for long periods of uninterrupted time, run this shortcut. After seeing the notification from Cronios as to when it will start evaluating your cron jobs, you can lock your screen or switch to using other apps.
+Now, whenever you want to run NoteCuts or Cronios for long periods of uninterrupted time, run this shortcut. After seeing the notification from NoteCuts or Cronios as to when it will start evaluating your cron jobs, you can lock your screen or switch to using other apps.
 
-Also use the [Cronios Watcher](http://cronios.com#cronios-watcher) to be notified if Cronios were to stop, either by iOS or by an error in the Shortcuts app. For more information, please refer to the [Cronios documentation](http://cronios.com).
+> If you use Cronios, install and use the [Cronios Watcher](http://cronios.com#cronios-watcher) to be notified if Cronios were to stop, either by iOS or by an error in the Shortcuts app. For more information, please refer to the [Cronios documentation](http://cronios.com).
 
 ****
 
@@ -301,8 +327,10 @@ If NoteCuts is running continuously in the background, shortcut commands will ru
 ## Exploring the NotesCuts Interface
 The NoteCuts Home screen has the following elements:
 
-- **Evaluate Local NoteCuts**: Checks all Local NoteCuts and runs any newly added shortcuts.
+- **Evaluate Continuously**: Constantly checks your Local NoteCuts for shortcut commands to run.
+- added - **Evaluate Once**: Checks all Local NoteCuts and runs any newly added shortcuts once before returning to the NoteCuts Home screen.
 - **Run Continuously with Cronios**: When Cronios integration is enabled, this action starts Cronios in Run Continuously mode. Shortcuts run via NoteCuts and Cronios are executed automatically in the background.
+- **Shortcut Quarantine**: Appears when a shortcut experiences an error while being run by NoteCuts.
 - **Local NoteCuts**: Lists all Local NoteCuts on the device. The icon next to each NoteCut depicts the location of the connected note: Apple Notes, Dropbox, or Evernote. 
 - **Remote NoteCuts**: Lists all Remote NoteCuts. If a NoteCut could not be found, a ❓ will appear below the name of the NoteCut. 
 - **New NoteCut**: Create a new local or remote NoteCut.
@@ -321,6 +349,7 @@ You can configure the following options in NoteCuts from the Settings page:
 
 - **Evaluate Local NoteCuts at Startup**: If enabled, NoteCuts will evaluate all Local NoteCuts when NoteCuts starts up. Any newly added shortcuts will run during this time. Afterwards, the NoteCuts Home screen will be displayed.
 - **Display Notification During Evaluation**: Displays a notification banner when NoteCuts evaluates Local NoteCuts. This banner does not appear if NoteCuts is running on a locked and sleeping device (via Cronios).
+- **Wait Interval**: Specify how long before NoteCuts evaluates your Local NoteCuts again when **Evaluate Continuously** is active.
 - **Notify Shortcut**: This option causes NoteCuts to send the shortcut a Cronios-style dictionary as input. If custom input is added, it is placed under the `input` key within this dictionary. Otherwise, the custom input is sent directly as input to the shortcut.
 - **Show Tips**: Shows tips as you use the app.
 - **Check for Updates Automatically**: If enabled, NoteCuts will check for updates automatically at startup.
@@ -346,13 +375,13 @@ Do you have Shortcuts Cache enabled? If so, have you added new shortcuts after t
 Did you provide keywords for your NoteCut, restricting the shortcuts that can run from the NoteCut? If so, make sure the shortcut you are trying to run is on the list of available shortcuts. You can view what shortcuts will run by selecting **View Triggerable Shortcuts** from the **Edit NoteCut** menu.
 
 ### I'm getting an error, "The action could not be run in the current user interface."
-With Apple Notes, NoteCuts makes use of the Append Note action when evaluating Local NoteCuts. By appending a new line to the end of the note, iCloud sync is triggered for the note, causing all updates to be fetched. The Append Note action currently requires the device to be unlocked. If NoteCuts tries to do this when the device is locked, this error will be thrown and NoteCuts and Shortcuts will stop execution. This is especially challenging when using Cronios, which will also stop running and evaluating your cron jobs.
+With Apple Notes, NoteCuts makes use of the Append Note action when evaluating Local NoteCuts. By appending a new line to the end of the note, iCloud sync is triggered for the note, causing all updates to be fetched. The Append Note action currently requires the device to be unlocked. If NoteCuts tries to do this when the device is locked, this error will be thrown and NoteCuts and Shortcuts will stop execution. The shortcut will be placed into quarantine, however, so it will not disrupt NoteCuts again unless your release it from quarantine.
 
 > Let's hope Apple and the Shortcuts team allow shortcut developers better ability to handle errors without terminating the entire shortcut execution in the future. 
 
 This is not a concern with Evernote and Dropbox. Retrieving data from those two services always seems to fetch the latest data from the cloud. 
 
-### I can't run other shortcuts from the Shortcuts app while Cronios is running. 
+### I can't run other shortcuts from the Shortcuts app while NoteCuts or Cronios is running in continuous mode.
 
 Refer to the section on [running other shortcuts](http://cronios.com/#running-other-shortcuts) in the Cronios documentation. 
 
@@ -374,7 +403,7 @@ This workflow can be visualized in the following flow diagram:
 
 ![NoteCuts Flow Diagram](https://adamtow.github.io/notecuts/images/notecuts-flow-diagram.png)
 
-### Will running Cronios and Notes impact my battery life?
+### Will running Cronios and NoteCuts impact my battery life?
 If the shortcuts that are being run employ battery-draining activities like Get Current Location, battery life will be affected. However, if Cronios and NoteCuts are just polling and not running shortcuts, battery drain can be minimal. 
 
 When running while the device is locked, the lack of battery drain is even more pronounced. A test shown that over a nearly 8 hour period, only 10% of a locked and sleeping iPad Pro battery was drained, despite Cronios, NoteCuts, and WatchCuts checking for new shortcuts to run every minute.
