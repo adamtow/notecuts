@@ -1,8 +1,6 @@
 # NoteCuts
 
-NoteCuts triggers shortcuts on other iOS devices using shared notes on Apple Notes, Dropbox, and Evernote. Add the name of a shortcut to a note on one of these services, and NoteCuts will run that shortcut within a minute. 
-
-NoteCuts continually monitors your notes and runs shortcuts automatically in the background, even when an iPad or iPhone is locked and sleeping.
+NoteCuts continually monitors shared notes on Apple Notes, Dropbox, and Evernote, enabling automatically running of shortcuts, even when the iOS device  is locked and sleeping.
 
 - [**Download NoteCuts from RoutineHub.co**](https://routinehub.co/shortcut/2711)
 
@@ -10,7 +8,9 @@ NoteCuts continually monitors your notes and runs shortcuts automatically in the
 
 With NoteCuts, you can:
 
-- Turn your iPad or iPhone into a server where others can run shortcuts to get device status, retrieve content, or deliver notifications. 
+- Run shortcuts automatically, no tapping on notification banners required!
+- Integrate with popular third-party services like IFTTT and Zapier to send shortcut commands to your iOS device using hundreds of triggers.
+- Turn your iPad or iPhone into a server to remotely run shortcuts to get device status, retrieve content, or deliver notifications.
 - Access and run shortcuts — with their permission — on other people's iOS devices.
 - Assist people who are less familiar with their iOS devices (i.e. parents and children) troubleshoot, web pages, display notifications, or run other shortcuts.
 
@@ -18,7 +18,6 @@ NotesCuts offers features such as the ability to:
 
 - Integration with shared notes in Apple Notes and Evernote, or text files on Dropbox.
 - Limit which shortcuts are available to run on a per-note basis.
-- Integrate with popular third-party services like IFTTT and Dropbox to send commands to your iOS device for automatic running, no tapping on a notification banner required. 
 - Run shortcuts while the screen is locked and the device is sleeping.
 - Notify owners of shared notes that there are shortcuts they would like them to run.
 - Send input to the shortcuts.
@@ -33,7 +32,7 @@ A common request from Shortcuts users is whether shortcuts can be automatically 
 - [**Cronios**](http://cronios.com): Date and time based scheduling. Enables shortcuts that can check for triggering events every minute.
 - [**GeoCuts**](http://geocuts.com): Location-based triggering of shortcuts.
 - [**WatchCuts**](https://tow.com/shortcuts/watchcuts): Trigger shortcuts from any iCloud-connected device, including Macs, Apple Watch, and iCloud.com.
-- [**NoteCuts**](https://tow.com/shortcuts/notecuts): Trigger shortcuts to run on other iOS devices using shared notes on Apple Notes, Dropbox, and Evernote.
+- [**NoteCuts**](https://tow.com/shortcuts/notecuts): Trigger shortcuts to automatically run on iOS devices by monitoring shared notes on Apple Notes, Dropbox, and Evernote.
 - [**AlarmCuts**](https://tow.com/shortcuts/alarmcuts): Attach shortcuts to run with alarms using ringtones and GarageBand.
 
 > Of course, it would be great if these features are built into iOS and Shortcuts, but we could be waiting a long time for those features to come. In the meantime, you can take advantage of these automation shortcuts today.
