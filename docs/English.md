@@ -291,7 +291,11 @@ NoteCuts can run continually in the background, constantly checking for new addi
 
 > Make sure the shortcut you want to run automatically [works when launched in the background](#background-aware-shortcuts). Any error may cause the Shortcuts app to display an modal dialog with will stop the shortcut and any future monitoring by NoteCuts until it has been removed from the [Shortcut Quarantine](#quarantine).
 
+![Adjusting NoteCut's Polling Interval](https://adamtow.github.io/notecuts/images/polling-interval.png)
+
 You can configure NoteCuts to check for new changes to your NoteCuts on Dropbox, Evernote, and Apple Notes every 1-60 seconds. For polling intervals longer than one minute, you'll want to use [Cronios and NoteCuts](#cronios) together. 
+
+> Setting an aggressive polling interval may lead to timeouts when using Dropbox and Evernote as the notes storage system. 
 
 <span id="quarantine"></span>
 ### Quarantine
@@ -304,6 +308,8 @@ When this happens, NoteCuts will prevent that shortcut from running again until 
 2. If shortcuts are in quarantine, a menu option called Shortcut Quarantine will appear below the evaluation menu items.
 3. Tap and select the shortcuts that should remain in quarantine.
 4. Tap Done.
+
+![Shortcuts Quarantine](https://adamtow.github.io/notecuts/images/quarantine.png)
 
 When a shortcut is removed from the quarantine, it can run again from NoteCuts. If another error occurs, you'll want to review the shortcut to see why it's crashing. It could be one of several reasons, including:
 
@@ -412,7 +418,7 @@ Combine a third-party triggering service like IFTTT or Zapier to append shortcut
 ![IFTTT Applet
 Example](https://adamtow.github.io/notecuts/images/ifttt-example.png)
 
-If NoteCuts is running continuously in the background, shortcut commands will run automatically. The screenshot below shows an IFTTT Do button widget running a shortcut on the iPad, triggered from either an iPhone or an Apple Watch. 
+If NoteCuts is running continuously in the background, shortcut commands will run automatically. The screenshot below shows an IFTTT Do button widget running a shortcut on the iPad, triggered from either an iPhone or an Apple Watch.
 
 ![Running a shortcut on the iPad from the iPhone and Apple Watch](https://adamtow.github.io/notecuts/images/ifttt-button-example.png)
 
