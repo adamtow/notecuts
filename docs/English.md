@@ -396,7 +396,7 @@ Tapping the notification banner will cause the [**NoteCuts Daemon**](#daemon) sh
 ### NoteCuts Daemon
 The [NoteCuts Daemon shortcut](https://routinehub.co/shortcut/2795) launches NoteCuts in Evaluate Continuously mode. Use it instead of running NoteCuts from the Edit Shortcut Screen for speed. Running through five actions is a lot faster than running through 2400!
 
-
+![NoteCuts Daemon](https://adamtow.github.io/notecuts/images/daemon.png)
 
 ****
 
