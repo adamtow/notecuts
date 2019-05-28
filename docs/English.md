@@ -88,6 +88,8 @@ If you have an iPad and an iPhone, you would have a minimum of two notes (stored
 - My iPad: Remote NoteCut
 - My iPhone: Local NoteCut
 
+![A Local and Remote NoteCut](https://adamtow.github.io/notecuts/images/notecut-local-remote.png)
+
 Let's first create a local NoteCut. Give it a name using the scheme described above. 
 
 The name you choose will be used as part of the title of the note in Apple Notes or Evernote and the filename for the text file on Dropbox. The format for the note or filename will be:
@@ -97,6 +99,8 @@ The name you choose will be used as part of the title of the note in Apple Notes
 Where `XYZ` is the name you enter. 
 
 > For Dropbox, do not add the `.txt` file extension. It will automatically be appended to the end of the name you choose. 
+
+![New NoteCut #1](https://adamtow.github.io/notecuts/images/notecut-new-1.png)
 
 ### NoteCut Location
 Next, you'll choose where you want the associated note will live. Select from:
@@ -129,6 +133,8 @@ Specifying these keywords means any shortcut that contains `Speak`, `Toggle`, or
 
 > Define shortcut keywords when sharing your local NoteCuts with other people. Otherwise, they will be able to run every shortcut on your device!
 
+![New NoteCut #2](https://adamtow.github.io/notecuts/images/notecut-new-2.png)
+
 ### Testing Your First NoteCut
 
 After creating the NoteCut, you will be presented by the Edit NoteCut Screen. Tap either **Add Text to Note** to bring up a text input dialog. 
@@ -144,6 +150,8 @@ In the text input dialog, add a command to run a shortcut by prefixing the  shor
 ```
 
 Choose a shortcut where it will be obvious to you that it has run.  A simple one could be one that speaks a number or flashes the flashlight on your device.
+
+![Adding a Shortcut Command to a Note](https://adamtow.github.io/notecuts/images/adding-to-note.png)
 
 #### Evaluating Your First NoteCut
 
