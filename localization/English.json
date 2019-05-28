@@ -24,7 +24,7 @@
 		"alert_welcome_2_title": "What is a NoteCut?",
 		"alert_welcome_3": "NoteCuts can continually look in your notes for new shortcuts to run automatically and in the background, even when your iOS device is locked and asleep.\n\nNoteCuts also works with Cronios, the shortcuts scheduler for iOS.\n\nAnd with NoteCuts Watcher, you can be notified when NoteCuts stops prematurely. With one tap, you can relaunch NoteCuts in continuous monitoring mode.",
 		"alert_welcome_3_title": "Run Shortcuts Automatically in the Background",
-		"alert_welcome_4": "NoteCuts is highly configurable. Visit Settings to configure NoteCuts to suit your style and workflow.\n\nFor complete documentation on how to use NoteCuts, tap Help from the NoteCuts Home screen.",
+		"alert_welcome_4": "NoteCuts is highly configurable. Visit Settings to set up NoteCuts to suit your style and workflow.\n\nFor complete documentation on how to use NoteCuts, tap Help from the NoteCuts Home screen.",
 		"alert_welcome_4_title": "Additional Configuration and Learning More",
 		"error_offline": "You must be connected to the internet to check for updates.",
 		"error_offline_title": "Offline",
