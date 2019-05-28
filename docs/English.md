@@ -362,6 +362,8 @@ To be notified in the event that NoteCuts does stop running, we get some help  f
 
 With the **Enable NoteCuts Watcher** preference is set and Scriptable and the NoteCuts Watcher Script installed, you’ll be notified when NoteCuts has stopped running within minutes. Tapping on the notification banner will relaunch NoteCuts in **Evaluate Continuously** mode via the [**NoteCuts Daemon**](#notecuts-daemon) shortcut. 
 
+![NoteCuts Watcher Setup](https://adamtow.github.io/notecuts/images/watcher-setup.png)
+
 Here’s how you install and configure Scriptable and **NoteCuts Watcher**:
 
 #### Scriptable Instructions
@@ -369,10 +371,10 @@ Here’s how you install and configure Scriptable and **NoteCuts Watcher**:
 2. Open Scriptable.
 3. Tap the + icon to create a new script. 
 4. Tap the Script Settings button. 
-5. Tap and edit the name. Call it `NoteCuts Watcher`. ![Create Scriptable script for NoteCuts Watcher](https://atow.files.wordpress.com/2019/01/Create-Scriptable-Script.png?w=1280)
+5. Tap and edit the name. Call it `NoteCuts Watcher`. ![Create Scriptable script for NoteCuts Watcher](https://adamtow.github.io/notecuts/images/watcher-script.png)
 6. Change the icon and color if desired. 
 7. Tap Done. 
-8. In the main script area, copy and paste [the contents of the following file on GitHub](https://raw.githubusercontent.com/adamtow/cronios/master/notecuts-watcher/notecuts-Watcher.js).
+8. In the main script area, copy and paste [the contents of the following file on GitHub](https://raw.githubusercontent.com/adamtow/notecuts/master/notecuts-watcher/notecuts-watcher.js).
 9. If desired, change the values in the `kNotificationInterval` array according to the reminder schedule you want to have for NoteCuts Watcher. The default reminds you to restart the [**NoteCuts Daemon** shortcut](#cronios-Daemon) after 5, 7, 10, 15, 30, and 60 minutes of no detectable NoteCuts activity. 
 10. Tap the Play button to run the script. This will create a shortcut in the Siri Suggestions actions section in Shortcuts. 
 11. Tap Done.
@@ -387,6 +389,8 @@ Here’s how you install and configure Scriptable and **NoteCuts Watcher**:
 4. Confirm that NoteCuts Daemon, Scriptable app, and the NoteCuts Watcher Scriptable script are all installed.
 
 To test this, run NoteCuts in “Evaluate Continuously” mode. After one evaluation period, stop it. Wait for five minutes and you will see a banner notification to relaunch NoteCuts.
+
+![NoteCuts Watcher in Action](https://adamtow.github.io/notecuts/images/watcher.png)
 
 >Make sure that Do Not Disturb is disabled and that Shortcuts can send you notifications, or you will not see the notification.
 
@@ -405,7 +409,12 @@ The [NoteCuts Daemon shortcut](https://routinehub.co/shortcut/2795) launches Not
 
 Combine a third-party triggering service like IFTTT or Zapier to append shortcut commands to your notes and files on Evernote or Dropbox. For Apple Notes, use shortcuts to append commands to local and remote NoteCuts notes. 
 
-If NoteCuts is running continuously in the background, shortcut commands will run automatically. 
+![IFTTT Applet
+Example](https://adamtow.github.io/notecuts/images/ifttt-example.png)
+
+If NoteCuts is running continuously in the background, shortcut commands will run automatically. The screenshot below shows an IFTTT Do button widget running a shortcut on the iPad, triggered from either an iPhone or an Apple Watch. 
+
+![Running a shortcut on the iPad from the iPhone and Apple Watch](https://adamtow.github.io/notecuts/images/ifttt-button-example.png)
 
 ****
 
