@@ -78,17 +78,23 @@ It is recommended to name your NoteCuts by device. This way it will be easy to i
 - `Mary's iPhone` 
 - `Johnny's iPad touch` 
 
-If you have an iPad and an iPhone, you would have a minimum of two notes (stored on either Dropbox, Evernote, or Apple Notes) and four NoteCuts, organized as follows:
+If you have an iPad and an iPhone, you would have a minimum of two notes (stored on either Dropbox, Evernote, or Apple Notes) and four NoteCuts (two on each device):
 
-**iPad**
-- My iPad: Local NoteCut
-- My iPhone: Remote NoteCut
+#### iPad
 
-**iPhone**
-- My iPad: Remote NoteCut
-- My iPhone: Local NoteCut
+- **My iPad**: Local NoteCut that runs shortcuts on the iPad.
+- **My iPhone**: Remote NoteCut that runs shortcuts on the remote iPhone.
+
+#### iPhone
+
+- **My iPhone**: Local NoteCut that run shortcuts on the iPhone.
+- **My iPad**: Remote NoteCut that run shortcuts on the remote iPad.
 
 ![A Local and Remote NoteCut](https://adamtow.github.io/notecuts/images/notecut-local-remote.png)
+
+The setup above will allow your iPad to trigger shortcuts on itself and the iPhone. And, the iPhone will be able to trigger its own shortcuts as well as the shortcuts on the iPad.
+
+### Your First NoteCut
 
 Let's first create a local NoteCut. Give it a name using the scheme described above. 
 
@@ -98,7 +104,7 @@ The name you choose will be used as part of the title of the note in Apple Notes
 
 Where `XYZ` is the name you enter. 
 
-> For Dropbox, do not add the `.txt` file extension. It will automatically be appended to the end of the name you choose. 
+> For NoteCuts using Dropbox, do not add `.txt` to the name. The file extension will automatically be appended to the end of the name you choose. 
 
 ![New NoteCut #1](https://adamtow.github.io/notecuts/images/notecut-new-1.png)
 
@@ -149,7 +155,7 @@ In the text input dialog, add a command to run a shortcut by prefixing the  shor
 ▶️ Speak Random Number
 ```
 
-Choose a shortcut where it will be obvious to you that it has run.  A simple one could be one that speaks a number or flashes the flashlight on your device.
+Choose a shortcut where it will be obvious to you that it has run.  A simple one could be one that [speaks a random number](https://routinehub.co/shortcut/1367) or flashes the flashlight on your device.
 
 ![Adding a Shortcut Command to a Note](https://adamtow.github.io/notecuts/images/adding-to-note.png)
 
@@ -159,6 +165,8 @@ Return to the Shortcuts app and tap **Evaluate This NoteCut** from the NoteCut E
 
 Congratulations, you just created and evaluated your first NoteCut!
 
+> To force Apple Notes to sync everytime you evaluate when Notes is not an active application, the **Update Apple Notes Automatically** [preference must be enabled](#settings). Note that this will add about 5 seconds to the beginning of the evaluation time to let iCloud Notes to sync.
+
 ### Next Steps
 - Learn how to [automatically evaluate your NoteCuts](#automatic). 
 - Discover more [details about the NoteCuts shortcut syntax](#syntax), including additional options you can add.
@@ -166,16 +174,87 @@ Congratulations, you just created and evaluated your first NoteCut!
 
 ****
 
-<span id=""></span>
+<span id="background"></span> 
+## Running NoteCuts in the Background
+
+NoteCuts can run continually in the background, constantly checking for new additions to your Apple Notes, Evernote notes, and Dropbox text files. You can configure from one to sixty seconds how often NoteCuts will check for changes. NoteCuts can even run these shortcuts when your device is locked and asleep.
+
+- Open **NoteCuts**.
+- Tap **Evaluate Continously**.
+
+Now, go into Apple Notes, Dropbox, or Evernote and start entering text at the end of the note, following the last appearance of  `⚡️📅 {{Date}} 🗒⚡️`, where {{Date}} is the last evaluation date.
+
+> If you are using Apple Notes, you will see a ⚡️⚡️ appended after every NoteCuts evaluation. This is how NoteCuts can always make sure it sees the latest version of your notes during evaluation. If you turn off the **Update Apple Notes Automatically** setting, the ⚡️⚡️ will no longer appear, but Apple Notes will need to be active in order for new changes to appear.
+
+Any shortcut command you add will be run during the next evaluation period by NoteCuts.
+
+Make sure the shortcut you want to run automatically [works when launched in the background](#background-aware-shortcuts). Any error may cause the Shortcuts app to display an modal dialog with will stop the shortcut and any future monitoring by NoteCuts until it has been removed from the [Shortcut Quarantine](#quarantine).
+
+### Polling Interval
+
+You can configure NoteCuts to check for new changes to your NoteCuts on Dropbox, Evernote, and Apple Notes every 1-60 seconds. For polling intervals longer than one minute, you'll want to use [Cronios and NoteCuts](#cronios) together. 
+
+> Setting an aggressive polling interval may lead to timeouts when using Dropbox and Evernote as the notes storage system. 
+
+![Adjusting NoteCut's Polling Interval](https://adamtow.github.io/notecuts/images/polling-interval.png)
+
+<span id="quarantine"></span>
+### Quarantine
+
+When NoteCuts runs a shortcut, it temporarily places the shortcut in a quarantine. If no errors occurred during execution, the shortcut is removed from the quarantine. However, if there was an error, it's likely one that terminated the entire Shortcut application.
+
+When this happens, NoteCuts will prevent that shortcut from running again until you remove it from the Quarantine.
+
+1. Open NoteCuts
+2. If shortcuts are in quarantine, a menu option called Shortcut Quarantine will appear below the evaluation menu items.
+3. Tap and select the shortcuts that should remain in quarantine.
+4. Tap Done.
+
+![Shortcuts Quarantine](https://adamtow.github.io/notecuts/images/quarantine.png)
+
+When a shortcut is removed from the quarantine, it can run again from NoteCuts. If another error occurs, you'll want to review the shortcut to see why it's crashing. It could be one of several reasons, including:
+
+- Trying to run an action that is disallowed in the current context.
+- The action is not supported on the iOS device (i.e. Vibrate Device on iPads).
+- A network timeout.
+- An action was requested that required online access.
+- A user timeout (i.e. a dialog menu was displayed but the user never returned to the Shortcuts app to address it).
+
+<span id="cronios"></span>
+### Integration with Cronios
+
+Cronios, the shortcuts scheduler for iOS, lets you can run shortcuts in the background. NoteCuts can run alongside other Cronios-compatible shortcuts by adding NoteCuts as a cron job to Cronios. 
+
+Here's how to configure NoteCuts to work with Cronios:
+
+1. Enable Cronios Integration on the [NoteCuts Settings page](#settings). Configure NoteCuts to run at an interval of your choosing in Cronios. NoteCuts gives you options to create a cron job in Cronios that checks every 1, 2, 5, 10, 15, 30, or 60 minutes. You can further customize this within the NoteCuts cron job details page in Cronios. 
+2. Run Cronios in Run Continuously Mode.
+3. For best results, have some kind of background audio playing, be it a song, podcast, or a [silent audio file](#silent).
+
+****
+
+<span id="integration"></span>
+## Integrating NoteCuts with Third-Party Triggering Services
+
+Combine a third-party triggering service like IFTTT or Zapier to append shortcut commands to your notes and files on Evernote or Dropbox. For Apple Notes, use shortcuts to append commands to local and remote NoteCuts notes. 
+
+![IFTTT Applet
+Example](https://adamtow.github.io/notecuts/images/ifttt-example.png)
+
+If NoteCuts is running continuously in the background, shortcut commands will run automatically. The screenshot below shows an IFTTT Do button widget running a shortcut on the iPad, triggered from either an iPhone or an Apple Watch.
+
+![Running a shortcut on the iPad from the iPhone and Apple Watch](https://adamtow.github.io/notecuts/images/ifttt-button-example.png)
+
+****
 
 <span id="sharing-notecuts"></span> 
-### Sharing NoteCuts
+## Sharing NoteCuts
 
 Invite friends, family, or colleagues to run shortcuts on your device. Have them do the same for you, so you can run shortcuts on their devices. As both of you edit notes that are associated with Local and Remote NoteCuts, the changes will stay in sync via iCloud, Evernote, or Dropbox. 
 
 > If you have no interest in sharing shortcuts with others, you may still want to be able to trigger shortcuts on all the iOS devices that you do own. Simply share the NoteCuts notes to yourself using the same instructions below. 
 
-#### Sharing in Apple Notes
+### Sharing in Apple Notes
 > Learn [more about sharing notes](https://support.apple.com/en-us/HT206987) in this Apple Support web page.
 
 1. In NotesCuts, open the NoteCut that you want to share.
@@ -190,7 +269,7 @@ Once a note has been shared, you can adjust its sharing settings by tapping on t
 - **Remove Access**: Remove access to your NoteCut.
 - **Stop Sharing**: Remove access for everyone to your NoteCut.
 
-#### Sharing in Dropbox
+### Sharing in Dropbox
 To share your text file in Dropbox, follow these steps:
 
 1. On the Dropbox website or app, navigate to the folder containing the note.
@@ -202,7 +281,7 @@ To share your text file in Dropbox, follow these steps:
 
 > NOTE: With Dropbox, in order for people to be able to edit the file, you have to share the parent folder, not the file.
 
-#### Sharing in Evernote
+### Sharing in Evernote
 To share your note in Evernote, follow these steps:
 
 1. Go to the note associated with the NoteCut.
@@ -289,57 +368,6 @@ Here are some examples:
 
 ****
 
-<span id="background"></span> 
-## Running NoteCuts in the Background
-
-NoteCuts can run continually in the background, constantly checking for new additions to your Apple Notes, Evernote notes, and Dropbox text files. You can configure from one to sixty seconds how often NoteCuts will check for changes. NoteCuts can even run these shortcuts when your device is locked and asleep.
-
-- Open **NoteCuts**.
-- Tap **Evaluate Continously**.
-
-> Make sure the shortcut you want to run automatically [works when launched in the background](#background-aware-shortcuts). Any error may cause the Shortcuts app to display an modal dialog with will stop the shortcut and any future monitoring by NoteCuts until it has been removed from the [Shortcut Quarantine](#quarantine).
-
-![Adjusting NoteCut's Polling Interval](https://adamtow.github.io/notecuts/images/polling-interval.png)
-
-You can configure NoteCuts to check for new changes to your NoteCuts on Dropbox, Evernote, and Apple Notes every 1-60 seconds. For polling intervals longer than one minute, you'll want to use [Cronios and NoteCuts](#cronios) together. 
-
-> Setting an aggressive polling interval may lead to timeouts when using Dropbox and Evernote as the notes storage system. 
-
-<span id="quarantine"></span>
-### Quarantine
-
-When NoteCuts runs a shortcut, it temporarily places the shortcut in a quarantine. If no errors occurred during execution, the shortcut is removed from the quarantine. However, if there was an error, it's likely one that terminated the entire Shortcut application.
-
-When this happens, NoteCuts will prevent that shortcut from running again until you remove it from the Quarantine.
-
-1. Open NoteCuts
-2. If shortcuts are in quarantine, a menu option called Shortcut Quarantine will appear below the evaluation menu items.
-3. Tap and select the shortcuts that should remain in quarantine.
-4. Tap Done.
-
-![Shortcuts Quarantine](https://adamtow.github.io/notecuts/images/quarantine.png)
-
-When a shortcut is removed from the quarantine, it can run again from NoteCuts. If another error occurs, you'll want to review the shortcut to see why it's crashing. It could be one of several reasons, including:
-
-- Trying to run an action that is disallowed in the current context.
-- The action is not supported on the iOS device (i.e. Vibrate Device on iPads).
-- A network timeout.
-- An action was requested that required online access.
-- A user timeout (i.e. a dialog menu was displayed but the user never returned to the Shortcuts app to address it).
-
-<span id="cronios"></span>
-### Integration with Cronios
-
-Cronios, the shortcuts scheduler for iOS, lets you can run shortcuts in the background. NoteCuts can run alongside other Cronios-compatible shortcuts by adding NoteCuts as a cron job to Cronios. 
-
-Here's how to configure NoteCuts to work with Cronios:
-
-1. Enable Cronios Integration on the [NoteCuts Settings page](#settings). Configure NoteCuts to run at an interval of your choosing in Cronios. NoteCuts gives you options to create a cron job in Cronios that checks every 1, 2, 5, 10, 15, 30, or 60 minutes. You can further customize this within the NoteCuts cron job details page in Cronios. 
-2. Run Cronios in Run Continuously Mode.
-3. For best results, have some kind of background audio playing, be it a song, podcast, or a [silent audio file](#silent).
-
-****
-
 <span id="silence"></span>
 ### Silent Audio
 Use these audio files with Cronios to let run for long periods of time when you're using your iOS device or when it's locked.
@@ -415,20 +443,6 @@ Tapping the notification banner will cause the [**NoteCuts Daemon**](#daemon) sh
 The [NoteCuts Daemon shortcut](https://routinehub.co/shortcut/2795) launches NoteCuts in Evaluate Continuously mode. Use it instead of running NoteCuts from the Edit Shortcut Screen for speed. Running through five actions is a lot faster than running through 2400!
 
 ![NoteCuts Daemon](https://adamtow.github.io/notecuts/images/daemon.png)
-
-****
-
-<span id="integration"></span>
-## Integrating NoteCuts with Third-Party Triggering Services
-
-Combine a third-party triggering service like IFTTT or Zapier to append shortcut commands to your notes and files on Evernote or Dropbox. For Apple Notes, use shortcuts to append commands to local and remote NoteCuts notes. 
-
-![IFTTT Applet
-Example](https://adamtow.github.io/notecuts/images/ifttt-example.png)
-
-If NoteCuts is running continuously in the background, shortcut commands will run automatically. The screenshot below shows an IFTTT Do button widget running a shortcut on the iPad, triggered from either an iPhone or an Apple Watch.
-
-![Running a shortcut on the iPad from the iPhone and Apple Watch](https://adamtow.github.io/notecuts/images/ifttt-button-example.png)
 
 ****
 
@@ -550,7 +564,28 @@ This is not a concern with Evernote and Dropbox. Retrieving data from those two 
 
 ### I can't run other shortcuts from the Shortcuts app while NoteCuts or Cronios is running in continuous mode.
 
-Refer to the section on [running other shortcuts](http://cronios.com/#running-other-shortcuts) in the Cronios documentation. 
+Because NotesCuts and Cronios are shortcuts themselves, they have to be running continually in order to evaluate your shortcuts.
+
+#### Notification Widget and Share Sheet
+You can, within limits, use shortcuts from the Notification Widget or shortcuts from the Share Sheet. If one of these shortcuts needs to open the Shortcut app, it will not work, since NoteCuts is running. Stop NoteCuts to be able to run your shortcut.
+
+#### Siri
+If you use Siri to run one of your shortcuts and NoteCuts is running, NoteCuts will terminate and iOS will run your shortcut. Remember to relaunch NoteCuts afterwards. 
+
+#### From the iOS Home Screen
+Tapping on a shortcut that you've added to the Home screen will terminate NoteCuts if it is running and run your shortcut.
+
+If you have the [NoteCuts Watcher](#watcher) enabled, you'll be notified within minutes that NoteCuts needs to be relaunched.
+
+Refer to the section on [running other shortcuts](http://cronios.com/#running-other-shortcuts) in the Cronios documentation for additional information on this subject.
+
+### NoteCuts is making this beep noise every minute
+
+That is the Keep-Alive beep feature of NoteCuts. It's proven to be the most reliable method for keeping NoteCuts running in the background, even when the device is locked and asleep. Turn down the sound so that the noise reaches an acceptable level for you, but note that this volume setting is the same for the Speak Text action of Shortcuts.
+
+### I'm seeing a the Request Time Out error when I leave NoteCuts running for long periods of time
+
+Error handling is not the best in Shortcuts. Because the time out error is displayed in a modal dialog, it terminates whatever shortcut is running. Let's hope that Apple allows better error handling in future versions of Shortcuts so that apps like NoteCuts and Cronios can continue running even after experiencing an error.
 
 <span id="how-it-works"></span> 
 ### How it works
@@ -579,15 +614,13 @@ When running while the device is locked, the lack of battery drain is even more 
 
 <span id="localization"></span> 
 ## Localization
-NoteCuts is available in English, but the application is also supplied with auto-translated localized files for the support spoken/dictation languages.
+NoteCuts is available in English, but is ready to be localized into other languages.
 
-Since machine translation is never perfect, your help would come greatly in handy. If you are a native speaker of one of these languages, consider contributing to improving PromptKit's localization files.
-
-You can use the Localization Helper shortcut to assist with localizing PromptKit into your language.
+You can use the Localization Helper shortcut to assist with localizing NoteCuts into your language.
 
 > [**Download Localization Helper from RoutineHub &raquo;**](https://routinehub.co/shortcut/1931)
 
-- When the localization file is complete, submit a pull request on [the PromptKit GitHub page](https://github.com/adamtow/notecuts/localization/).
+- When the localization file is complete, submit a pull request on [the NoteCuts GitHub page](https://github.com/adamtow/notecuts/localization/).
 
 Help make NoteCuts more accurate and more universal for all iOS users!
 
