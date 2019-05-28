@@ -1,6 +1,6 @@
 # NoteCuts
 
-NoteCuts continually monitors shared notes on Apple Notes, Dropbox, and Evernote, enabling automatically running of shortcuts, even when the iOS device  is locked and sleeping.
+NoteCuts continually monitors shared notes on Apple Notes, Dropbox, and Evernote, enabling automatically running of shortcuts, even when the iOS device is locked and sleeping.
 
 - [**Download NoteCuts from RoutineHub.co**](https://routinehub.co/shortcut/2711)
 
@@ -19,7 +19,7 @@ NotesCuts offers features such as the ability to:
 - Integration with shared notes in Apple Notes and Evernote, or text files on Dropbox.
 - Limit which shortcuts are available to run on a per-note basis.
 - Run shortcuts while the screen is locked and the device is sleeping.
-- Notify owners of shared notes that there are shortcuts they would like them to run.
+- Notify owners of shared notes that there are shortcuts that you would like them to run.
 - Send input to the shortcuts.
 - Switch to the Shortcuts app for displaying menus and dialogs.
 
@@ -54,16 +54,23 @@ NoteCuts has the following system requirements:
 
 <span id="getting-started"></span> 
 ## Getting Started
-When you run NoteCuts for the first time, you'll be presented with a short tutorial that runs through the major features of NoteCuts. Afterwards, you will have the option to create your first NoteCut.
+When you run NoteCuts for the first time, you'll be presented with a short tutorial describes the major features of NoteCuts. Afterwards, you will have the option to create your first NoteCut, read the documentation, or go to the [NoteCuts Home screen](#interface). 
 
-You can choose between a Local NoteCut or Remote NoteCut.
+Let's make a NoteCut. You must first choose if you want to create a local NoteCut or remote NoteCut.
 
 ### Local NoteCuts
-A local NoteCut allows you to run shortcuts on the same iOS device where the NoteCut resides. When you share your note with other people, they associate that note with a Remote NoteCut.
+A local NoteCut is attached to a file/note in Dropbox, Evernote, or Apple Notes that allows you to run shortcuts on the same iOS device where the NoteCut resides. As you add shortcut commands to this note and evaluate them with NoteCuts — either manually or [automatically](#background) — the shortcuts will run on your device. 
+
+You normally would have one local NoteCut on each of your iOS devices reserved for your own personal use. 
+
+Should you ever [share this note with other people](#sharing), they can remotely execute shortcuts on your device by associating the same note as a remote NoteCut.
+
+> In this case, you may want to provide others with a note that offers a [subset of shortcuts](#adding-shortcuts) that you want to make available for remote usage. 
 
 ### Remote NoteCuts
-Remote NoteCuts are associated with Local NoteCuts on other iOS devices. You can create these notes yourself or receive them as shared notes from other users. A shortcut added to a remote NoteCut will run on a different iOS device. 
+Remote NoteCuts are notes that are associated with local NoteCuts on other iOS devices. You can create these notes yourself or receive them as [shared notes from other people](#sharing-notecuts). A shortcut command added to a remote NoteCut will run on a different iOS device.
 
+### Naming Your NoteCuts
 It is recommended to name your NoteCuts by device. This way it will be easy to identify on which device the shortcuts will be running. For instance;
 
 - `Adam's iPad Pro` 
@@ -71,13 +78,25 @@ It is recommended to name your NoteCuts by device. This way it will be easy to i
 - `Mary's iPhone` 
 - `Johnny's iPad touch` 
 
+If you have an iPad and an iPhone, you would have a minimum of two notes (stored on either Dropbox, Evernote, or Apple Notes) and four NoteCuts, organized as follows:
+
+**iPad**
+- My iPad: Local NoteCut
+- My iPhone: Remote NoteCut
+
+**iPhone**
+- My iPad: Remote NoteCut
+- My iPhone: Local NoteCut
+
 Let's first create a local NoteCut. Give it a name using the scheme described above. 
 
-The name you choose will be used as the title of the note in Apple Notes or Evernote and the filename for the text file on Dropbox. The format for the note or filename will be:
+The name you choose will be used as part of the title of the note in Apple Notes or Evernote and the filename for the text file on Dropbox. The format for the note or filename will be:
 
 	`NoteCuts (XYZ)`
 
 Where `XYZ` is the name you enter. 
+
+> For Dropbox, do not add the `.txt` file extension. It will automatically be appended to the end of the name you choose. 
 
 ### NoteCut Location
 Next, you'll choose where you want the associated note will live. Select from:
@@ -91,11 +110,12 @@ For your first NoteCut, tap Apple Notes.
 ### Description
 Add a description for your NoteCut or tap OK to leave it blank.
 
+<span id="adding-shortcuts"></span>
 ### Adding Shortcuts
 
-When you create a Local NoteCut, you can define which shortcuts can be run from the NoteCut. By default, you can run any shortcut installed on the device.
+When you create a local NoteCut, you can define which shortcuts can be run from the NoteCut. By default, you can run any shortcut installed on the device.
 
-> If you don't specify anything, any shortcut on your iOS device will be available to run from this NoteCut. 
+> If you don't specify anything, any shortcut on your iOS device will be available to run from this NoteCut.
 
 To restrict this, separate keywords by new lines. Any shortcut that contains the keyword can run when this NoteCut is evaluated. For instance:
 
@@ -105,34 +125,44 @@ Toggle
 Remote
 ```
 
-Specifying these keywords means any shortcut that contains `Speak`, `Toggle`, or `Remote` can run with this local NoteCut. A shortcut named `Photos` will not run. 
+Specifying these keywords means any shortcut that contains `Speak`, `Toggle`, or `Remote` can run with this local NoteCut. A shortcut named `Photos` will not run. Keywords are case-sensitive so `Toggle` is not the same as `toggle`.
 
-> Use the ability to specify which shortcuts can run when sharing your local NoteCuts with other people. Otherwise, they will be able to run every shortcut on your device!
+> Define shortcut keywords when sharing your local NoteCuts with other people. Otherwise, they will be able to run every shortcut on your device!
 
-### Testing NoteCuts
+### Testing Your First NoteCut
 
-After creating the NoteCut, you will be presented by the Edit NoteCut Screen. Tap **View in Notes** to open the Notes app. 
+After creating the NoteCut, you will be presented by the Edit NoteCut Screen. Tap either **Add Text to Note** to bring up a text input dialog. 
 
-> You can also choose **Add Text to Note** to append text to the selected note without having to leave the Shortcuts app.
+> If you have an iPad, you can display Notes in Split View or Slideover and choose **View in Notes** to see Shortcuts and Notes side-by-side. 
 
-#### Adding a Shortcut
+#### Adding a Shortcut Command
 
-In the new note, add a command to run a shortcut by prefixing the  shortcut name with the `▶️` character. For instance:
+In the text input dialog, add a command to run a shortcut by prefixing the  shortcut name with the `▶️` character. For instance:
 
 ```
 ▶️ Speak Random Number
 ```
 
-Choose a shortcut where it will be obvious to you that it has run. 
+Choose a shortcut where it will be obvious to you that it has run.  A simple one could be one that speaks a number or flashes the flashlight on your device.
 
-> Note: If you have an iPad with Split View support, have both #how-it-worksthe Shortcuts app and Apple Notes visible. 
+#### Evaluating Your First NoteCut
 
-Return to NoteCuts in the Shortcuts app and tap **Evaluate This NoteCut** from the Edit menu. After a few seconds, the shortcut will run. [Learn more about what NoteCuts is doing during evaluation here]().
+Return to the Shortcuts app and tap **Evaluate This NoteCut** from the NoteCut Edit menu. After a few seconds, the shortcut will run.
 
-Discover more [details about the NoteCuts shortcut syntax](#syntax), including additional options you can add.
+Congratulations, you just created and evaluated your first NoteCut!
+
+### Next Steps
+- Learn how to [automatically evaluate your NoteCuts](#automatic). 
+- Discover more [details about the NoteCuts shortcut syntax](#syntax), including additional options you can add.
+- Understand just [what NoteCuts is doing during evaluation here](#how-it-works).
+
+****
+
+<span id=""></span>
 
 <span id="sharing-notecuts"></span> 
 ### Sharing NoteCuts
+
 Invite friends, family, or colleagues to run shortcuts on your device. Have them do the same for you, so you can run shortcuts on their devices. As both of you edit notes that are associated with Local and Remote NoteCuts, the changes will stay in sync via iCloud, Evernote, or Dropbox. 
 
 > If you have no interest in sharing shortcuts with others, you may still want to be able to trigger shortcuts on all the iOS devices that you do own. Simply share the NoteCuts notes to yourself using the same instructions below. 
@@ -180,9 +210,11 @@ Once people have accepted the share invitation and gained access to the file, th
 
 <span id="syntax"></span> 
 ## NoteCuts Syntax
+
 NoteCuts looks for specially formatted lines to indicate shortcuts to run and the last evaluation dates.
 
 ### Run Delimiter
+
 NoteCuts will evaluate any text following the **last** occurrence of the following string:
 
 `⚡️📅 {{Date}} 🗒⚡️`
@@ -196,6 +228,7 @@ You do not have to add the run delimiter yourself. NoteCuts automatically adds i
 > Note: If your device is sleeping, the run delimiter will be added for NoteCuts using Evernote and Dropbox. Apple Notes syncing can only occur while the device is on and unlocked. 
 
 ### Shortcut Syntax
+
 To run a shortcut, you must prefix the shortcut name with the `▶️` character. This instructs NoteCuts to run a shortcut. For instance:
 
 ```
@@ -207,6 +240,7 @@ Toggle Flashlight
 In the example above, only two shortcuts will run, Speak Random Number and Backup My Shortcuts. Toggle Flashlight will not run, even though it is a valid shortcut name, because the `▶️` character is not present at the beginning of the line. 
 
 ### Shortcut Options
+
 You can specify the following emoji characters to provide options after the name of the shortcut:
 
 #### 🔒
@@ -249,16 +283,19 @@ Here are some examples:
 
 <span id="background"></span> 
 ## Running NoteCuts in the Background
-NoteCuts can run continually in the background, constantly checking for changes in your Apple Notes, Evernote notes, and Dropbox text files. You can configure from one to sixty seconds how often NoteCuts will check for changes.
 
-Running NoteCuts continually means your iPhone or iPad can constantly be on the lookout for new shortcuts to run that were added either by you or someone to whom you've shared a NoteCut with. It can even run these shortcuts when your device is locked and asleep.
+NoteCuts can run continually in the background, constantly checking for new additions to your Apple Notes, Evernote notes, and Dropbox text files. You can configure from one to sixty seconds how often NoteCuts will check for changes. NoteCuts can even run these shortcuts when your device is locked and asleep.
 
-- Open NoteCuts
-- Tap Evaluate Continously
+- Open **NoteCuts**.
+- Tap **Evaluate Continously**.
 
-> Make sure the shortcut you want to run automatically works when launched in the background. Any error may cause the Shortcuts app to display an modal dialog with will stop the shortcut and any future monitoring by NoteCuts until it has been removed from the [Shortcut Quarantine](#quarantine).
+> Make sure the shortcut you want to run automatically [works when launched in the background](#background-aware-shortcuts). Any error may cause the Shortcuts app to display an modal dialog with will stop the shortcut and any future monitoring by NoteCuts until it has been removed from the [Shortcut Quarantine](#quarantine).
 
+You can configure NoteCuts to check for new changes to your NoteCuts on Dropbox, Evernote, and Apple Notes every 1-60 seconds. For polling intervals longer than one minute, you'll want to use [Cronios and NoteCuts](#cronios) together. 
+
+<span id="quarantine"></span>
 ### Quarantine
+
 When NoteCuts runs a shortcut, it temporarily places the shortcut in a quarantine. If no errors occurred during execution, the shortcut is removed from the quarantine. However, if there was an error, it's likely one that terminated the entire Shortcut application.
 
 When this happens, NoteCuts will prevent that shortcut from running again until you remove it from the Quarantine.
@@ -276,12 +313,14 @@ When a shortcut is removed from the quarantine, it can run again from NoteCuts. 
 - An action was requested that required online access.
 - A user timeout (i.e. a dialog menu was displayed but the user never returned to the Shortcuts app to address it).
 
+<span id="cronios"></span>
 ### Integration with Cronios
-Cronios, the shortcuts scheduler for iOS, lets you can run shortcuts in the background. NoteCuts can run alongside other Cronios-compatible shortcuts by addin NoteCuts as a cron job to Cronios. 
+
+Cronios, the shortcuts scheduler for iOS, lets you can run shortcuts in the background. NoteCuts can run alongside other Cronios-compatible shortcuts by adding NoteCuts as a cron job to Cronios. 
 
 Here's how to configure NoteCuts to work with Cronios:
 
-1. Enable Cronios Integrtfrkm the NoteCuts Settings page. Configure NoteCuts to run at an interval of your choosing in Cronios. NoteCuts gives you options to create a cron job in Cronios that checks every 1, 2, 5, 10, 15, 30, or 60 minutes. You can further customize this within the NoteCuts cron job details page in Cronios. 
+1. Enable Cronios Integration on the [NoteCuts Settings page](#settings). Configure NoteCuts to run at an interval of your choosing in Cronios. NoteCuts gives you options to create a cron job in Cronios that checks every 1, 2, 5, 10, 15, 30, or 60 minutes. You can further customize this within the NoteCuts cron job details page in Cronios. 
 2. Run Cronios in Run Continuously Mode.
 3. For best results, have some kind of background audio playing, be it a song, podcast, or a [silent audio file](#silent).
 
@@ -293,9 +332,9 @@ Use these audio files with Cronios to let run for long periods of time when you'
 
 - [**Download 12 and 24 Hours of Silence MP3 Files**](https://www.dropbox.com/sh/eu0mb1vf1oqo74l/AACijAwutUSDMtzeTElIGBx9a?dl=0)
 
-Here are instructions on how to create a shortcut that 
+Here are instructions on how to create a shortcut that plays the silent audio and runs NoteCuts in continuous monitoring mode. 
 
-1. Add these files to iTunes.
+1. Add the audio files to iTunes.
 2. Sync them to your iOS device. 
 3. Play the song to create a Siri Shortcut (optional). 
 4. Create a shortcut that has the following actions:
@@ -307,9 +346,57 @@ Here are instructions on how to create a shortcut that
 
 ![24 Hours of Silence](https://adamtow.github.io/notecuts/images/silence.png)
 
-Now, whenever you want to run NoteCuts or Cronios for long periods of uninterrupted time, run this shortcut. After seeing the notification from NoteCuts or Cronios as to when it will start evaluating your cron jobs, you can lock your screen or switch to using other apps.
+Now, whenever you want to run NoteCuts or Cronios for long periods of uninterrupted time, run this shortcut. After seeing the notification from NoteCuts or Cronios as to when it will start evaluation, you can lock your screen or switch to using other apps.
 
-> If you use Cronios, install and use the [Cronios Watcher](http://cronios.com#cronios-watcher) to be notified if Cronios were to stop, either by iOS or by an error in the Shortcuts app. For more information, please refer to the [Cronios documentation](http://cronios.com).
+> Whether you use Cronios or NoteCuts, install and enable the [NoteCuts Watcher](#watcher) or the [Cronios Watcher](http://cronios.com#cronios-watcher) to be notified if NoteCuts/Cronios were to stop, either by iOS or by an error in the Shortcuts app.
+
+<span id="watcher"></span>
+### NoteCuts Watcher
+
+To be notified in the event that NoteCuts does stop running, we get some help  from [Scriptable](https://scriptable.app), is a JavaScript development enviroment for iOS from Simon B. Støvring. Scriptable allows you to create JavaScript scripts that can be run from Shortcuts and Siri. It also has the ability to schedule notifications, which we use to notify us when NoteCuts has stopped running. 
+
+[**NoteCuts Watcher**](https://raw.githubusercontent.com/adamtow/notecuts/master/notecuts-watcher/notecuts-watcher.js) is a script for use with Scriptable and Cronios that does two things:
+
+1. Creates reminder notifications in the future for you to restart NoteCuts in “Evaluate Continuously” Mode. 
+2. Clears out any previously set reminders.
+
+With the **Enable NoteCuts Watcher** preference is set and Scriptable and the NoteCuts Watcher Script installed, you’ll be notified when NoteCuts has stopped running within minutes. Tapping on the notification banner will relaunch NoteCuts in **Evaluate Continuously** mode via the [**NoteCuts Daemon**](#notecuts-daemon) shortcut. 
+
+Here’s how you install and configure Scriptable and **NoteCuts Watcher**:
+
+#### Scriptable Instructions
+1. Download and install [Scriptable](https://scriptable.app). 
+2. Open Scriptable.
+3. Tap the + icon to create a new script. 
+4. Tap the Script Settings button. 
+5. Tap and edit the name. Call it `NoteCuts Watcher`. ![Create Scriptable script for NoteCuts Watcher](https://atow.files.wordpress.com/2019/01/Create-Scriptable-Script.png?w=1280)
+6. Change the icon and color if desired. 
+7. Tap Done. 
+8. In the main script area, copy and paste [the contents of the following file on GitHub](https://raw.githubusercontent.com/adamtow/cronios/master/notecuts-watcher/notecuts-Watcher.js).
+9. If desired, change the values in the `kNotificationInterval` array according to the reminder schedule you want to have for NoteCuts Watcher. The default reminds you to restart the [**NoteCuts Daemon** shortcut](#cronios-Daemon) after 5, 7, 10, 15, 30, and 60 minutes of no detectable NoteCuts activity. 
+10. Tap the Play button to run the script. This will create a shortcut in the Siri Suggestions actions section in Shortcuts. 
+11. Tap Done.
+
+#### In Shortcuts
+1. Make sure you have the [**NoteCuts Daemon** shortcut](#notecuts-daemon) installed. 
+
+#### In NoteCuts
+1. Open NoteCuts. 
+2. Tap **Settings**. 
+3. Tap **Enable NoteCuts Watcher**. 
+4. Confirm that NoteCuts Daemon, Scriptable app, and the NoteCuts Watcher Scriptable script are all installed.
+
+To test this, run NoteCuts in “Evaluate Continuously” mode. After one evaluation period, stop it. Wait for five minutes and you will see a banner notification to relaunch NoteCuts.
+
+>Make sure that Do Not Disturb is disabled and that Shortcuts can send you notifications, or you will not see the notification.
+
+Tapping the notification banner will cause the [**NoteCuts Daemon**](#notecuts-daemon) shortcut to relaunch NoteCuts back in “Evaluate Continuously” mode. Every time NoteCuts successfully processes your NoteCuts, it will call NoteCuts Watcher to reset the relaunch reminders. 
+
+<span id="notecuts-Daemon"></span>
+### NoteCuts Daemon
+The [NoteCuts Daemon shortcut](https://routinehub.co/shortcut/2795) launches NoteCuts in Evaluate Continuously mode. Use it instead of running NoteCuts from the Edit Shortcut Screen for speed. Running through five actions is a lot faster than running through 2400!
+
+
 
 ****
 
@@ -324,10 +411,11 @@ If NoteCuts is running continuously in the background, shortcut commands will ru
 
 <span id="interface"></span> 
 ## Exploring the NotesCuts Interface
+
 The NoteCuts Home screen has the following elements:
 
 - **Evaluate Continuously**: Constantly checks your Local NoteCuts for shortcut commands to run.
-- added - **Evaluate Once**: Checks all Local NoteCuts and runs any newly added shortcuts once before returning to the NoteCuts Home screen.
+- **Evaluate Once**: Checks all Local NoteCuts and runs any newly added shortcuts once before returning to the NoteCuts Home screen.
 - **Run Continuously with Cronios**: When Cronios integration is enabled, this action starts Cronios in Run Continuously mode. Shortcuts run via NoteCuts and Cronios are executed automatically in the background.
 - **Shortcut Quarantine**: Appears when a shortcut experiences an error while being run by NoteCuts.
 - **Local NoteCuts**: Lists all Local NoteCuts on the device. The icon next to each NoteCut depicts the location of the connected note: Apple Notes, Dropbox, or Evernote. 
@@ -365,6 +453,59 @@ You can configure the following options in NoteCuts from the Settings page:
 - **Check for Updates**: Perform a manual check for updates of NoteCuts.
 - **Reset Settings**: Reset settings or all contact from NoteCuts.
 - **Back to Home**: Returns to the NoteCuts Home screen.
+
+****
+
+<span id="background-aware-shortcuts"></span>
+## Background-Aware Shortcuts
+When writing background aware shortcuts, you have to consider what you can and cannot do in your shortcut. 
+
+Your shortcut can be executing from many places when run from NoteCuts:
+
+- Shortcuts app. 
+- In another app. 
+- From the Lock Screen. 
+- While the device is asleep. 
+
+Some actions do not work when the device is locked and some do not work when Shortcuts is not the frontmost application.
+
+### Requires Unlocked Device
+The following actions (not an exhaustive list) require the device to be unlocked. 
+
+- Health actions. 
+- Get Contents of Web Page
+- Append To Note
+- Get Current Location
+- Get Current Weather
+- Dictate Text
+- Send Message
+
+### Requires Shortcuts be the Frontmost Application
+Here are some actions that require Shortcuts to be the frontmost application:
+
+- Dictate Text
+- Get Current Location
+- Get Current Weather
+- Send Message
+
+If you use any of these actions above when not in the Shortcuts app, an error will occur and stop NoteCuts. 
+
+The following actions will not raise an error, but you must return to the Shortcuts app in order to continue running the shortcut. If you wait too long, the Shortcuts app may time out and quit. 
+
+- Ask For Input
+- Show Alert
+- Quick Look
+
+You can force a switch to the Shortcuts app either in your shortcut or by specifying the ✋ option in the shortcut command to the NoteCut. For instance:
+
+```
+▶️ Check The Weather ✋
+▶️ Dictate Some Text ✋ ☁️
+▶️ Text My Location ✋
+```
+Right before any of these shortcuts run, NoteCuts will call the Open App action and open Shortcuts. 
+
+Always test your shortcuts so that they run without errors in the background. If an error does occur, the shortcut may be added to the [Shortcut Quarantine](#quarantineq) in NoteCuts. 
 
 ****
 
