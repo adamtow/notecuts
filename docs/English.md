@@ -125,9 +125,9 @@ In the new note, add a command to run a shortcut by prefixing the  shortcut name
 
 Choose a shortcut where it will be obvious to you that it has run. 
 
-> Note: If you have an iPad with Split View support, have both the Shortcuts app and Apple Notes visible. 
+> Note: If you have an iPad with Split View support, have both #how-it-worksthe Shortcuts app and Apple Notes visible. 
 
-Return to NoteCuts in the Shortcuts app and tap **Evaluate This NoteCut** from the Edit menu. After a few seconds, the shortcut will run. [Learn more about what NoteCuts is doing during evaluation here](#how-it-works).
+Return to NoteCuts in the Shortcuts app and tap **Evaluate This NoteCut** from the Edit menu. After a few seconds, the shortcut will run. [Learn more about what NoteCuts is doing during evaluation here]().
 
 Discover more [details about the NoteCuts shortcut syntax](#syntax), including additional options you can add.
 
@@ -347,19 +347,23 @@ The NoteCuts Home screen has the following elements:
 You can configure the following options in NoteCuts from the Settings page:
 
 - **Evaluate Local NoteCuts at Startup**: If enabled, NoteCuts will evaluate all Local NoteCuts when NoteCuts starts up. Any newly added shortcuts will run during this time. Afterwards, the NoteCuts Home screen will be displayed.
-- **Display Notification During Evaluation**: Displays a notification banner when NoteCuts evaluates Local NoteCuts. This banner does not appear if NoteCuts is running on a locked and sleeping device (via Cronios).
-- **Wait Interval**: Specify how long before NoteCuts evaluates your Local NoteCuts again when **Evaluate Continuously** is active.
-- **Notify Shortcut**: This option causes NoteCuts to send the shortcut a Cronios-style dictionary as input. If custom input is added, it is placed under the `input` key within this dictionary. Otherwise, the custom input is sent directly as input to the shortcut.
-- **Show Tips**: Shows tips as you use the app.
-- **Check for Updates Automatically**: If enabled, NoteCuts will check for updates automatically at startup.
-- **Integrate with Cronios**: If enabled, additional options will appear on the NoteCuts Home page. You can launch Cronios into Run Continuously mode or add/update the NoteCuts cron job in Cronios.
+- **Enable NoteCuts Watcher**: This is a [Scriptable](https://scriptable.app) script that notifies you when NoteCuts has stopped running around a certain amount of time. Enabling this feature requires (1) Scriptable, (2) the [NoteCuts Deaemon](https://routinehub.co/shortcut/2795) shortcut.
+- **Adjust Polling Interval**: Specify how long before NoteCuts evaluates your Local NoteCuts again when **Evaluate Continuously** is active.
+- **Get 24 Hours of Silence MP3**: Download a 24-hour or 12-hour audio file consistenly of silence. Playing this while NoteCuts is in the background greatly increases uptime.
+- **Enable Cronios Integration**: If enabled, additional options will appear on the NoteCuts Home page. You can launch Cronios into Run Continuously mode or add/update the NoteCuts cron job in Cronios.
 - **Add/Update Cron Job with Cronios**: Adds or updates the NoteCuts cron job in Cronios.
 - **Cache Shortcuts**: By default, NoteCuts will use the **Get My Shortcuts** action to retrieve a list of all shortcuts on your device prior to running any shortcut. Ifyou have a lot of shortcuts, this action can take several seconds. Enabling **Cache Shortcuts** will cause NoteCuts to use a cached list of shortcut names when determining which shortut will run.
 - **Update Shortcuts Cache**: Updates the saved cache file for shortcuts installed on this iOS device.
+- **Check for Updates Automatically**: If enabled, NoteCuts will check for updates automatically at startup.
+- **Show Tips**: Shows tips as you use the app.
 - **Display Dividers**: Separate the sections of the NoteCuts Home screen with blank lines. Assists with readability if you have a large number of local and remote NoteCuts. 
+- **Notify Shortcut**: This option causes NoteCuts to send the shortcut a Cronios-style dictionary as input. If custom input is added, it is placed under the `input` key within this dictionary. Otherwise, the custom input is sent directly as input to the shortcut.
+- **Enable Logging**: "Keep track of the shortcuts that were run or hidden.",
 - **Enable Debug Mode**: For developers, enabling this option displays alerts during evaluation. Helpful when debugging your NoteCuts. 
-- **Check for Updates**: Perform a manual check for updates of PromptKit.
-- **Change Language**: Change the language of PromptKit.
+- **View Logs**: Displays defice-specific log file.
+- **Change Language**: Change the language of NoteCuts.
+- **Check for Updates**: Perform a manual check for updates of NoteCuts.
+- **Reset Settings**: Reset settings or all contact from NoteCuts.
 - **Back to Home**: Returns to the NoteCuts Home screen.
 
 ****
