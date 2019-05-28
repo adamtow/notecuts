@@ -378,7 +378,7 @@ Here’s how you install and configure Scriptable and **NoteCuts Watcher**:
 11. Tap Done.
 
 #### In Shortcuts
-1. Make sure you have the [**NoteCuts Daemon** shortcut](#notecuts-daemon) installed. 
+1. Make sure you have the [**NoteCuts Daemon** shortcut](#daemon) installed. 
 
 #### In NoteCuts
 1. Open NoteCuts. 
@@ -390,9 +390,9 @@ To test this, run NoteCuts in “Evaluate Continuously” mode. After one evalua
 
 >Make sure that Do Not Disturb is disabled and that Shortcuts can send you notifications, or you will not see the notification.
 
-Tapping the notification banner will cause the [**NoteCuts Daemon**](#notecuts-daemon) shortcut to relaunch NoteCuts back in “Evaluate Continuously” mode. Every time NoteCuts successfully processes your NoteCuts, it will call NoteCuts Watcher to reset the relaunch reminders. 
+Tapping the notification banner will cause the [**NoteCuts Daemon**](#daemon) shortcut to relaunch NoteCuts back in “Evaluate Continuously” mode. Every time NoteCuts successfully processes your NoteCuts, it will call NoteCuts Watcher to reset the relaunch reminders. 
 
-<span id="notecuts-Daemon"></span>
+<span id="daemon"></span>
 ### NoteCuts Daemon
 The [NoteCuts Daemon shortcut](https://routinehub.co/shortcut/2795) launches NoteCuts in Evaluate Continuously mode. Use it instead of running NoteCuts from the Edit Shortcut Screen for speed. Running through five actions is a lot faster than running through 2400!
 
