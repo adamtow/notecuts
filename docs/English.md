@@ -284,14 +284,14 @@ To share your text file in Dropbox, follow these steps:
 ### Sharing in Evernote
 To share your note in Evernote, follow these steps:
 
-1. Go to the note associated with the NoteCut.
-2. Tap the Share Note button.
-3. Enter the names or emails of the people to whom you want to share the note.
+1. Go to the Evernote NoteBook that holds the note you want to  associated with the NoteCut.
+2. Tap the Share button.
+3. Enter the names or emails of the people to whom you want to share the notebook.
 4. Tap the pencil icon to allow them to edit the note. Best to not allow them to invite others to edit the note.
 
 > On iOS, the Share Note button looks similar to the one in Apple Notes. It's a person with a plus button. On Evernote on the web, the button is green and says Share.
 
-Once people have accepted the share invitation and gained access to the file, they will be able to run shortcuts on your iOS device. 
+Once people have accepted the share invitation and gained access to the notebook, they will be able to associate notes in the notebook with NoteCuts to run shortcuts.
 
 ****
 
