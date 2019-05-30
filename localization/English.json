@@ -5,7 +5,7 @@
 		"alert_cronJob_frequency_title": "Cron Job Frequency",
 		"alert_donated_already": "Thank you for supporting NoteCuts!",
 		"alert_evaluation": "Evaluating local NoteCuts for any shortcuts to run on this device…",
-		"alert_evaluation_continuously": "NoteCuts will begin continuous monitoring of your local NoteCuts for shortcut commands in {{Time}} seconds.",
+		"alert_evaluation_continuously": "NoteCuts will begin continuous monitoring of your local NoteCuts in {{Time}} seconds.",
 		"alert_import_cronJob": "Tap OK to import into Cronios.\n\nIf Import Active Status is enabled in Cronios Settings, the cron job will run automatically when you enter `Run Continuously` mode in Cronios. Otherwise edit the cron job and tap Enable.\n\nFrom the Edit screen, you can also adjust the cron schedule expression better suit the frequency of checks, which is currently set to every {{frequency}} minute(s).",
 		"alert_import_none": "Either no notes could be found to import, or all possible notes are associated with existing NoteCuts.\n\nNotes supported by NoteCuts have titles of `NoteCuts (XYZ)` where XYZ is the name of the NoteCut.",
 		"alert_import_none_title": "No Notes Imported",
@@ -178,7 +178,7 @@
 		"tip_appleNotes": "Changes to Apple Notes will not be synced when your iOS device is locked.\n\nIf your device wakes up but remains unlocked, it may cause NoteCuts to stop monitoring.\n\nUse notes on Evernote or Dropbox if you plan on using NoteCuts primarily in the background.",
 		"tip_appleNotes_title": "Tips for Using NoteCuts with Apple Notes",
 		"tip_notify": "Notify people who have associated this note with a local NoteCut that shortcuts are ready to run.",
-		"tip_runContinuously": "1. Use NoteCuts associated with files on Dropbox or notes in Evernote. NoteCuts attached to Apple Notes may stop automatic monitoring if the device screen turns on when the device is locked and asleep.\n\n2. Play music, a podcast, or silent audio if you plan to lock this device.\n\n3. Enable the NoteCuts Watcher for one tap relaunching of NoteCuts when it does stop monitoring prematurely.\n\nNote: Every minute, NoteCuts will speak a quick beep. This beep helps NoteCuts stay running in the background.",
-		"tip_runContinuously_title": "Tips for Running NoteCuts Continuously"
+		"tip_runContinuously": "1. Use NoteCuts associated with files on Dropbox or notes in Evernote.\n\nNoteCuts attached to Apple Notes may stop automatic monitoring if the  device is locked and the screen turns on during evaluation.\n\n2. Playing music, a podcast, or silent audio will help NoteCuts remain operating in the background.\n\n3. Enable the NoteCuts Watcher for one tap relaunching when monitoring stops prematurely.\n\nEvery minute, NoteCuts will speak a quick beep, which helps it stay running in the background longer.\n\nYou can hide this alert by turning off Show Tips in Settings.",
+		"tip_runContinuously_title": "Tips: Running NoteCuts Continuously"
 	}
 }
