@@ -172,6 +172,7 @@
 		"prompt_reset_settings": "Are you sure you want to reset NoteCuts settings on this device?\n\nNone of your NoteCuts or logs will be affected.",
 		"prompt_shortcuts_selected": "What do you want to do with the selected shortcuts?",
 		"prompt_trigger_type": "What kind of NoteCut do you want to create?\n\n• LOCAL: Lets others trigger shortcuts to run on this device.\n\n• REMOTE: Trigger and run shortcuts on remote iOS devices.",
+		"prompt_update": "NoteCuts {{version}} is available. Would you like to download it now?\n\nRelease Notes\n{{notes}}",
 		"prompt_view_shortcuts": "Select shortcuts that can be triggered from this NoteCut.",
 		"prompt_watcher": "Get notified when NoteCuts stops running and relaunch NoteCuts in continuous monitoring mode with one tap. This feature requires:\n\n1. NoteCuts Daemon Shortcut\n2. Scriptable from the App Store\n3. NoteCuts Watcher Scriptable Script\n\nConfirm that you have installed each item before enabling this feature.",
 		"prompt_welcome": "What do you want to do next in NoteCuts?",
