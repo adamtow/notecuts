@@ -133,6 +133,8 @@
 		"menu_settings_viewLogs.uptime": "View Uptime…",
 		"menu_settings_watcher": "Enable NoteCuts Watcher",
 		"menu_settings_watcher_description": "Scriptable and NoteCuts Watcher must be installed.",
+		"menu_update_cancel": "Update Later",
+		"menu_update_confirm": "Download Update…",
 		"menu_watcher_confirm": "Activate NoteCuts Watcher",
 		"menu_watcher_daemon": "Get NoteCuts Daemon…",
 		"menu_watcher_instructions": "Instructions…",
